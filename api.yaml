@@ -2256,13 +2256,13 @@ definitions:
         type: integer
       autoAV:
         $ref: '#/definitions/ExtenderAutoAVSetting'
-      misc: 
+      misc:
         $ref: '#/definitions/ExtenderMisc'
       config:
         type: array
         items:
           $ref: '#/definitions/ExtenderConfig'
-      groups: 
+      groups:
         type: array
         items:
           $ref: '#/definitions/ExtenderMapping'
@@ -2298,7 +2298,7 @@ definitions:
         type: string
       rules:
         type: array
-        items: 
+        items:
           type: string
       account:
         type: string
@@ -2320,7 +2320,7 @@ definitions:
         type: string
       password:
         type: string
-        
+
   ExtenderOSD:
     type: object
     properties:
@@ -2375,7 +2375,7 @@ definitions:
         properties:
           photoPath:
             type: string
-    
+
       resolution:
         type: string
         pattern: '^(640x480@60|1920x1080@60|3840x2160@30)$'
@@ -2402,7 +2402,7 @@ definitions:
   ExtenderAutoOSD:
     type: object
     properties:
-      status: 
+      status:
         $ref: '#/definitions/AutoOIDStatus'
       setting:
         $ref: '#/definitions/AutoOIDSetting'
@@ -2504,7 +2504,7 @@ definitions:
         type: integer
       rxScreenMode:
         type: integer
-    
+
       fullHDDownScaleMode:
         type: integer
       hdDownScaleMode:
@@ -2515,7 +2515,7 @@ definitions:
         type: integer
       kBitRate:
         type: integer
-    
+
       hdmiMuteFlag:
         type: boolean
       audioMuteFlag:
@@ -2524,7 +2524,7 @@ definitions:
         type: boolean
       cecFlag:
         type: boolean
-    
+
       learningType:
         type: string
         pattern: '^(dynamic|static)$'
@@ -2532,19 +2532,19 @@ definitions:
         type: string
       clientSource:
         type: integer
-    
+
       osdIndex:
         type: integer
       osdMute:
         type: boolean
       osdResolution:
         type: string
-    
+
       edidMode:
         type: integer
       learningEDIDFrom:
         type: string
-    
+
   ExtenderAutoAVSetting:
     type: object
     properties:
@@ -2571,7 +2571,7 @@ definitions:
         type: boolean
         example: false
       cecFlag:
-        type: integer
+        type: boolean
         example: true
       clientSource:
         type: integer
