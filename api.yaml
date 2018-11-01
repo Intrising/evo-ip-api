@@ -453,6 +453,64 @@ paths:
             type: integer
             example: 1
 
+  /api (APIAutoAVSetting.UpdateExtenderVideoWallTxSetting):
+    post:
+      tags:
+      - VideoWall
+      summary: 'Update a tx in a single mapping of a videowall'
+      operationId: UpdateExtenderVideoWallTxSetting
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Object that needs to be set
+        required: true
+        schema:
+          type: object
+          properties:
+            jsonrpc:
+              type: string
+              example: '2.0'
+            id:
+              type: string
+              example: '20'
+              description: sequence number
+            method:
+              type: string
+              example: APIAutoAVSetting.UpdateExtenderVideoWallTxSetting
+            params:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                  description: This id is the id of the videowall starting from 1
+                row:
+                  type: integer
+                  example: 0
+                  description: Row is the row position of the mapping of a videowall starting from 0
+                column:
+                  type: integer
+                  example: 0
+                  description: Column is the row position of the mapping of a videowall starting from 0
+                txName:
+                  type: string
+                  example: tx123
+                  description: txName is the name of the tx you want to set to the mapping
+                groupId:
+                  type: integer
+                  example: 65
+                  description: groupId is the current groupId of the tx you want to set to the mapping
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: integer
+            example: 1
+
   /api (APIAutoAVSetting.AddExtenderVideoWallConfig):
     post:
       tags:
@@ -522,6 +580,7 @@ paths:
           schema:
             type: integer
             example: 1
+
   /api (APIAutoAVSetting.DeleteExtenderVideoWallConfig):
     post:
       tags:
