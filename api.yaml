@@ -1100,9 +1100,7 @@ paths:
                   type: array
                   items:
                     type: string
-                    enum:
-                    - videoLost
-                    - connectionLost
+                    enum: [ videoLost, connectionLost ]
                 actions:
                   type: array
                   items:
