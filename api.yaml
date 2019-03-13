@@ -1,8 +1,17 @@
 swagger: '2.0'
 info:
+  # description: ...
   version: 1.0.1
-  title: Eagleyes API
-  description: This document updated in 20180920
+  title: Evo-IP API
+  description: This document updated in 20190313
+  updateLog: "Add following APIs
+              APIAutoAVSetting.GetUserOSDList
+              APIAutoAVSetting.AddUserOSDPhoto
+              APIAutoAVSetting.DeleteUserOSDPhoto
+              APIAutoAVSetting.SetExtenderResolutionCommand
+              APIAutoAVSetting.SetExtenderEmailConfig
+              APIAutoAVSetting.SetExtenderSMSConfig
+              add /upload to upload files"
   contact:
     email: walter@intrising.com.tw
 tags:
@@ -55,8 +64,16 @@ paths:
       responses:
         200:
           description: successful operation
-          schema:
-            $ref: '#/definitions/ExtenderQueryInfo'
+          id:
+            type: string
+            example: "2"
+          jsonrpc:
+            type: string
+            example: "2.0"
+          result:
+            type: array
+            items:
+              $ref: '#/definitions/Extender'
   /api (APIAutoAVSetting.GetExtenderSetting):
     post:
       tags:
@@ -88,7 +105,7 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/ExtenderSetting'
+            $ref: '#/definitions/Extender'
   /api (APIAutoAVSetting.GetSnapShot):
     post:
       tags:
@@ -152,7 +169,7 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/ExtenderMisc'
+            $ref: '#/definitions/Misc'
   /api (APIAutoAVSetting.SetExtenderGroupIdCommand):
     post:
       tags:
@@ -229,7 +246,7 @@ paths:
             params:
               type: array
               items:
-                $ref: '#/definitions/ExtenderMapping'
+                $ref: '#/definitions/Mapping'
       responses:
         200:
           description: successful operation
@@ -453,64 +470,6 @@ paths:
             type: integer
             example: 1
 
-  /api (APIAutoAVSetting.UpdateExtenderVideoWallTxSetting):
-    post:
-      tags:
-      - VideoWall
-      summary: 'Update a tx in a single mapping of a videowall'
-      operationId: UpdateExtenderVideoWallTxSetting
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.UpdateExtenderVideoWallTxSetting
-            params:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1
-                  description: This id is the id of the videowall starting from 1
-                row:
-                  type: integer
-                  example: 0
-                  description: Row is the row position of the mapping of a videowall starting from 0
-                column:
-                  type: integer
-                  example: 0
-                  description: Column is the row position of the mapping of a videowall starting from 0
-                txName:
-                  type: string
-                  example: tx123
-                  description: txName is the name of the tx you want to set to the mapping
-                groupId:
-                  type: integer
-                  example: 65
-                  description: groupId is the current groupId of the tx you want to set to the mapping
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: integer
-            example: 1
-
   /api (APIAutoAVSetting.AddExtenderVideoWallConfig):
     post:
       tags:
@@ -528,59 +487,59 @@ paths:
         required: true
         schema:
           type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.AddExtenderVideoWallConfig
-            params:
-              type: object
-              properties:
-                active:
-                  type: boolean
-                  example: false
-                activeIndex:
-                  type: integer
-                  example: -1
-                id:
-                  type: integer
-                  description: Please noted this id must be the length of the videoWall list plus 1
-                  example: 1
-                layout:
-                  type: object
-                  properties:
-                    columns:
-                      type: integer
-                      example: 3
-                    rows:
-                      type: integer
-                      example: 2
-                name:
-                  type: string
-                  example: 'VW7387'
-                osd:
-                  type: boolean
-                  example: false
-                mapping:
-                  type: array
-                  items:
-                    $ref: '#/definitions/VideoWallMapping'
-                  description: |
-                    WebUI default will set empty mapping to generate the table
-                    Highly recommended to do so to avoid UI crash
+          $ref: '#/definition/ExtenderVideoWall'
+          # properties:
+          #   jsonrpc:
+          #     type: string
+          #     example: '2.0'
+          #   id:
+          #     type: string
+          #     example: '20'
+          #     description: sequence number
+          #   method:
+          #     type: string
+          #     example: APIAutoAVSetting.AddExtenderVideoWallConfig
+          #   params:
+          #     type: object
+          #     properties:
+          #       active:
+          #         type: boolean
+          #         example: false
+          #       activeIndex:
+          #         type: integer
+          #         example: -1
+          #       id:
+          #         type: integer
+          #         description: Please noted this id must be the length of the videoWall list plus 1
+          #         example: 1
+          #       layout:
+          #         type: object
+          #         properties:
+          #           columns:
+          #             type: integer
+          #             example: 3
+          #           rows:
+          #             type: integer
+          #             example: 2
+          #       name:
+          #         type: string
+          #         example: 'VW7387'
+          #       osd:
+          #         type: boolean
+          #         example: false
+          #       mapping:
+          #         type: array
+          #         items:
+          #           $ref: '#/definitions/VideoWallMapping'
+          #         description: |
+          #           WebUI default will set empty mapping to generate the table
+          #           Highly recommended to do so to avoid UI crash
       responses:
         200:
           description: successful operation
           schema:
             type: integer
             example: 1
-
   /api (APIAutoAVSetting.DeleteExtenderVideoWallConfig):
     post:
       tags:
@@ -700,14 +659,46 @@ paths:
               type: string
               example: APIAutoAVSetting.UpdateExtenderVideoWallConfig
             params:
-              $ref: '#/definitions/ExtenderVideoWall'
+              type: object
+              properties:
+                activeIndex:
+                  type: integer
+                  example: -1
+                  description: -1 represet deactive in pi
+                id:
+                  type: integer
+                  description: vw index
+                active:
+                  type: boolean
+                  example: false
+                  description: for UI showing
+                layout:
+                  type: object
+                  properties:
+                    rows:
+                      type: integer
+                      example: 2
+                    columns:
+                      type: integer
+                      example: 3
+                name:
+                  type: string
+                  example: 'VW1213'
+                osd:
+                  type: boolean
+                  example: false
+                  description: represet OSD enabled
+                mapping:
+                  type: array
+                  items:
+                    $ref: '#/definitions/VideoWallMapping'
       responses:
         200:
           description: successful operation
           schema:
             type: integer
             example: 1
-  /api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
+  /api APIAutoAVSetting.SetExtenderOSDMappingCommand:
     post:
       tags:
       - OSD
@@ -752,7 +743,7 @@ paths:
           schema:
             type: integer
             example: 1
-  /api (APIAutoAVSetting.SetExtenderAutoOSDConfig):
+  /api APIAutoAVSetting.SetExtenderAutoOSDConfig:
     post:
       tags:
       - OSD
@@ -981,9 +972,9 @@ paths:
               data:
                 type: object
                 properties:
-                  success:
+                  success: 
                     type: boolean
-                  saved_as:
+                  saved_as: 
                     type: string
                     description: "the uploaded url, need to pass it through APIAutoAVSetting.AddUserOSDPhoto"
 
@@ -1080,7 +1071,7 @@ paths:
         description: Object that needs to be set
         required: true
         schema:
-          type: object
+          type: array
           properties:
             jsonrpc:
               type: string
@@ -1095,7 +1086,7 @@ paths:
             params:
               type: string
               example: "photo1.png"
-      responses:
+    responses:
         200:
           description: successful operation
           schema:
@@ -1118,7 +1109,7 @@ paths:
         description: Object that needs to be set
         required: true
         schema:
-          type: object
+          type: array
           properties:
             jsonrpc:
               type: string
@@ -1134,14 +1125,14 @@ paths:
               type: object
               properties:
                 macAddress:
-                  type: string
+                  type: string 
                   example: "aa:bb:cc:dd:ee:11"
                   description: "The macAddress of the target extender"
                 value:
                   type: string
                   example: "640x480@60"
                   description: "The supported resolution string"
-      responses:
+    responses:
         200:
           description: successful operation
           schema:
@@ -1177,48 +1168,7 @@ paths:
               example: APIAutoAVSetting.SetExtenderScheduleConfig
             params:
               type: object
-              properties:
-                rawIndex:
-                  type: integer
-                  example: 0
-                  description: "schedule index"
-                deviceType:
-                  type: string
-                  example: 'TX'
-                deviceName:
-                  type: string
-                  example: 'txA'
-                startDate:
-                  type: integer
-                  description: Unix Timestamp
-                  example: 1520837143
-                endDate:
-                  type: integer
-                  description: second
-                  example: 1520837143
-                dayOfTheWeek:
-                  type: integer
-                  description: 0~6 , 0 is Sunday
-                  example: 2
-                hour:
-                  type: integer
-                  example: 8
-                minute:
-                  type: integer
-                  example: 21
-                action:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                      description: EnablePoE ,DisablePoE , Reboot , Hotplug , Sms , Email , Alarm
-                      example: 'reboot'
-                    key:
-                      type: string
-                      description: Don't use dot ','
-                    duration:
-                      type: integer
-                      example: 20
+              $ref: '#/definition/ExtenderSchedule'
       responses:
         200:
           description: successful operation
@@ -1329,7 +1279,7 @@ paths:
               items:
                 type: object
                 properties:
-                  groupName:
+                  groupName: 
                     type: string
                     description: the group name of this group
                     example: "group1"
@@ -1377,7 +1327,7 @@ paths:
               items:
                 type: object
                 properties:
-                  groupName:
+                  groupName: 
                     type: string
                     description: the group name of this group
                     example: "group1"
@@ -2308,14 +2258,114 @@ paths:
           schema:
             $ref: '#/definitions/ExtenderVendor'
 definitions:
+  ExtenderUserReboot:
+    type: object
+    properties:
+      enabled:
+        type: boolane
+      dayOfTheWeek:
+        type: string
+      hour:
+        type: integer
+      minute:
+        type: integer
+
+  ExtenderAutoAV:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      priority:
+        type: string
+
+  ExtenderMisc:
+    type: object
+    properties:
+      cecEnabled: 
+        type: boolean
+      qrCodeEnabled:
+        type: boolean
+      stopUpdate:
+        type: boolean
+      userReboot:
+        type: object
+        $ref: '#/definitions/ExtenderUserReboot'
+  ExtenderConfig:
+    type: object
+    properties:
+      vendor:
+        type: string 
+      deviceName:
+        type: string 
+      groupId:
+        type: integer
+      deviceType:
+        type: string 
+      macAddress:
+        type: string 
+      ipAddress:
+        type: string 
+      netmask:
+        type: string 
+      gateway:
+        type: string 
+      dhcpStatus:
+        type: bool   
+      displayMode:
+        type: integer
+      videoOutMode:
+        type: integer
+      rxScreenMode:
+        type: integer
+      speedMode:
+        type: string 
+      rotate:
+        type: integer
+      fullHDDownScaleMode:
+        type: integer
+      hdDownScaleMode:
+        type: integer
+      upScaleMode:
+        type: string 
+      baudRate:
+        type: integer
+      kBitRate:
+        type: integer
+      hdmiMuteFlag:
+        type: bool 
+      audioMuteFlag:
+        type: bool 
+      ledFlag:
+        type: bool 
+      cecFlag:
+        type: bool 
+      learningType:
+        type: string 
+      screenshotpath:
+        type: string 
+      clientSource:
+        type: integer
+      osdIndex:
+        type: integer
+      osdMute:
+        type: bool   
+      osdResolution:
+        type: string 
+      edidMode:
+        type: integer
+      learningEDIDFrom:
+        type: string 
+        
   ExtenderSetting:
     type: object
     properties:
-      defaultGroupIndex:
+      defaultGroupIndex: 
         type: integer
       autoAV:
-        $ref: '#/definitions/ExtenderAutoAVSetting'
+        type: object
+        $ref: '#/definitions/ExtenderAutoAV'
       misc:
+        type: object
         $ref: '#/definitions/ExtenderMisc'
       config:
         type: array
@@ -2324,12 +2374,12 @@ definitions:
       groups:
         type: array
         items:
-          $ref: '#/definitions/ExtenderMapping'
+          $ref: '#/definitions/Mapping'
       schedule:
         type: array
         items:
           $ref: '#/definitions/ExtenderSchedule'
-      events:
+      event:
         type: array
         items:
           $ref: '#/definitions/ExtenderEvent'
@@ -2338,113 +2388,101 @@ definitions:
         items:
           $ref: '#/definitions/ExtenderAccess'
       service:
-        $ref: '#/definitions/ExtenderService'
+        type: object
+        properties:
+          emails:
+            type: array
+            items:
+              $ref: '#/definitions/ExtenderEmail'
+          sms:
+            type: array
+            items:
+              $ref: '#/definitions/ExtenderSms'
       osd:
-        $ref: '#/definitions/ExtenderOSD'
+        type: object
+        properties:
+          osd:
+            type: object
+            $ref: '#/definitions/ExtenderOSD'
       videoWall:
         type: array
         items:
           $ref: '#/definitions/ExtenderVideoWall'
-  ExtenderSchedule:
-    type: object
-    # TODO: 看不懂commet所以留白
-  ExtenderAccess:
+  
+  ExtenderVideoWall:
     type: object
     properties:
-      deviceType:
-        type: string
-      deviceName:
-        type: string
-      rules:
+      name: 
+        type: string             
+      id: 
+        type: integer            
+      active: 
+        type: bool               
+      activeIndex: 
+        type: integer            
+      layout: 
+        type: object
+        $ref: '#/definitions/VideoWallLayout'
+      osd: 
+        type: bool               
+      mapping: 
         type: array
         items:
-          type: string
-      account:
-        type: string
-      password:
-        type: string
+          $ref: '#/definitions/VideoWallMapping'
+  
+  VideoWallLayout:
+    type: object
+    properties:
+      rows:
+        type: integer 
+      columns:
+        type: integer 
 
-  ExtenderService:
+  ExtenderAutoOSD:
     type: object
     properties:
-      deviceType:
-        type: string
-      deviceName:
-        type: string
-      rules:
-        type: array
-        items:
-          type: string
-      account:
-        type: string
-      password:
-        type: string
+      status:
+        type: object
+        $ref: '#/definitions/AutoStatus'
+      setting:
+        type: object
+        $ref: '#/definitions/AutoSetting'
 
-  ExtenderOSD:
+  AutoStatus:
     type: object
     properties:
-      auto:
-        $ref: '#/definitions/ExtenderAutoOSD'
-      custom:
-        type: array
-        items:
-          $ref: '#/definitions/ExtenderCustomOSD'
-  ExtenderCustomOSD:
+      rxName:
+        type: bool 
+      rxMacAddress:
+        type: bool 
+      groupName:
+        type: bool 
+      rxIpAddress:
+        type: bool 
+      groupId:
+        type: bool 
+      groupIpAddress:
+        type: bool 
+      accessQRCode:
+        type: bool 
+
+  AutoSetting:
     type: object
     properties:
-      index:
+      timeout:
         type: integer
-      name:
-        type: string
-      customType:
-        type: string
-        pattern: '^(message|image)$'
+      backgroudColor:
+        type: string 
+      textColor:
+        type: string 
       transparency:
         type: integer
-      position:
-        $ref: '#/definitions/ExtenderPos'
-      message:
-        type: object
-        properties:
-          text:
-            type: string
-          textColor:
-            type: string
-          font:
-            type: string
-          size:
-            type: integer
-          backgroudColor:
-            type: string
-      image:
-        type: object
-        properties:
-          subType:
-            type: string
-          cyclePlayType:
-            type: string
-          cyclePlayInterval:
-            type: integer
-          photoLists:
-            type: array
-            items:
-              type: string
-      theme:
-        type: object
-        properties:
-          photoPath:
-            type: string
-
-      resolution:
-        type: string
-        pattern: '^(640x480@60|1920x1080@60|3840x2160@30)$'
 
   ExtenderPos:
     type: object
     properties:
       alignment:
-        type: string
-        pattern: '^(topLeft|top|topRight|left|center|right|bottomLeft|bottom|bottomRight)$'
+        type: string 
       offsetX:
         type: integer
       offsetY:
@@ -2455,166 +2493,158 @@ definitions:
         type: integer
       rotate:
         type: integer
-        description: 0 | 180 | 270
-
-
-  ExtenderAutoOSD:
+      
+  CustomMessage:
     type: object
     properties:
-      status:
-        $ref: '#/definitions/AutoOIDStatus'
-      setting:
-        $ref: '#/definitions/AutoOIDSetting'
-
-
-  AutoOIDStatus:
-    type: object
-    properties:
-      rxName:
-        type: boolean
-      rxMacAddress:
-        type: boolean
-      groupName:
-        type: boolean
-      rxIpAddress:
-        type: boolean
-      groupId:
-        type: boolean
-      groupIpAddress:
-        type: boolean
-      accessQRCode:
-        type: boolean
-
-  AutoOIDSetting:
-    type: object
-    properties:
-      timeout:
-        type: number
-      backgroudColor:
-        type: string
+      text:
+        type: string 
       textColor:
-        type: string
-        example: #ff0000
-      transparency:
+        type: string 
+      font:
+        type: string 
+      size:
         type: integer
-        description: 0~100
+      backgroudColor:
+        type: string 
 
-  ExtenderVideoWall:
+  CustomImage:
     type: object
     properties:
-      activeIndex:
-        type: integer
-        example: -1
-        description: -1 represet deactive in pi
-      id:
-        type: integer
-        description: vw index
-      active:
-        type: boolean
-        example: false
-        description: for UI showing
-      layout:
-        type: object
-        properties:
-          rows:
-            type: integer
-            example: 2
-          columns:
-            type: integer
-            example: 3
-      name:
-        type: string
-        example: 'VW1213'
-      osd:
-        type: boolean
-        example: false
-        description: represet OSD enabled
-      mapping:
+      subType: 
+        type: string   
+      cyclePlayType: 
+        type: string   
+      cyclePlayInterval: 
+        type: integer  
+      photoLists: 
         type: array
         items:
-          $ref: '#/definitions/VideoWallMapping'
+          type: string
+
+  CustomTheme:
+    type: object
+    properties:
+      photoPath:
+        type: string
+
+  ExtenderCustomOSD:
+    type: object
+    properties:
+      index: 
+        type: integer       
+      name: 
+        type: string        
+      customType: 
+        type: string        
+      transparency: 
+        type: integer       
+      position: 
+        type: object
+        $ref: '#/definitions/ExtenderPos'   
+      message: 
+        type: object
+        $ref: '#/definitions/CustomMessage'
+      image: 
+        type: object
+        $ref: '#/definitions/CustomImage'
+      theme: 
+        type: object
+        $ref: '#/definitions/CustomTheme'
+      resolution: 
+        type: string
+  
+  ExtenderOSD:
+    type: object
+    properties:
+      auto:
+        type: object
+        $ref: '#/definitions/ExtenderAutoOSD'
+      custom:
+        type: array
+        items:
+          $ref: '#/definitions/ExtenderCustomOSD'
+
+  ExtenderEmail:
+    type: object
+    properties:
+      groupName:
+        type: string
+      receivers:
+        type: string
+
+  ExtenderSms:
+    type: object
+    properties:
+      groupName:
+        type: string
+      receivers:
+        type: string
+
+  ExtenderAccess:
+    type: object
+    properties:
+      deviceType:
+        type: string   
+      deviceName:
+        type: string   
+      rules:
+        type: array
+        items:
+          type: string
+      account:
+        type: string   
+      password:
+        type: string  
+ 
   ExtenderEvent:
     type: object
-    # TODO
-  ExtenderConfig:
+    properties:
+      deviceType: 
+        type: string           
+      deviceName: 
+        type: string           
+      event: 
+        type: string           
+      actions: 
+        type: array
+        items:
+          $ref: '#/definitions/ExtenderAction'
+
+  ExtenderAction:
     type: object
     properties:
-      vendor:
-        type: string
-      deviceName:
-        type: string
-      groupId:
+      name:
+        type: string 
+      key:
+        type: string 
+      duration:
         type: integer
+
+  ExtenderSchedule:
+    type: object
+    properties:
       deviceType:
-        type: string
-      macAddress:
-        type: string
-      ipAddress:
-        type: string
-      netmask:
-        type: string
-      gateway:
-        type: string
-      dhcpStatus:
-        type: boolean
-      displayMode:
-        type: integer
-      videoOutMode:
-        type: integer
-      rxScreenMode:
-        type: integer
+        type: string         
+      deviceName:
+        type: string         
+      startDate:
+        type: int64          
+      endDate:
+        type: int64          
+      dayOfTheWeek:
+        type: string         
+      hour:
+        type: integer        
+      minute:
+        type: integer        
+      action:
+        type: object 
+        $ref: '#/definitions/ExtenderAction'
 
-      fullHDDownScaleMode:
-        type: integer
-      hdDownScaleMode:
-        type: integer
-      upScaleMode:
-        type: string
-      baudRate:
-        type: integer
-      kBitRate:
-        type: integer
 
-      hdmiMuteFlag:
-        type: boolean
-      audioMuteFlag:
-        type: boolean
-      ledFlag:
-        type: boolean
-      cecFlag:
-        type: boolean
-
-      learningType:
-        type: string
-        pattern: '^(dynamic|static)$'
-      screenshotpath:
-        type: string
-      clientSource:
-        type: integer
-
-      osdIndex:
-        type: integer
-      osdMute:
-        type: boolean
-      osdResolution:
-        type: string
-
-      edidMode:
-        type: integer
-      learningEDIDFrom:
-        type: string
-
-  ExtenderAutoAVSetting:
-    type: object
-    properties:
-      enabled:
-        type: boolean
-        example: false
-      priority:
-        type: string
-        example: 'strict'
-        description: "one of the 'strict', 'high', 'normal'"
-  ExtenderQueryInfo:
+      
+  Extender:
     type: object
     properties:
       alive:
@@ -2630,7 +2660,7 @@ definitions:
         type: boolean
         example: false
       cecFlag:
-        type: boolean
+        type: integer
         example: true
       clientSource:
         type: integer
@@ -2771,10 +2801,10 @@ definitions:
       value:
         type: string
         description: 'the url of the snapshot stores'
-  ExtenderMisc:
+  Misc:
     type: object
     properties:
-      cecEnabled:
+      ecEnabled:
         type: boolean
         example: false
       qrCodeEnabled:
@@ -2783,7 +2813,7 @@ definitions:
       stopUpdate:
         type: boolean
         example: false
-  ExtenderMapping:
+  Mapping:
     type: object
     properties:
       index:
@@ -2918,7 +2948,7 @@ definitions:
 
 # Added by API Auto Mocking Plugin
 # host: virtserver.swaggerhub.com
-# basePath: /Intrising/Eagleyes/1.0.0
+# basePath: /Intrising/Evo-IP/1.0.0
 # schemes:
 #  - http
 # Added by API Auto Mocking Plugin
@@ -2930,4 +2960,4 @@ schemes:
  - http
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /Intrising/Eagleyes/1.0.0
+basePath: /Intrising/Evo-IP/1.0.0
