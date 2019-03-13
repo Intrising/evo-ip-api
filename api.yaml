@@ -64,16 +64,17 @@ paths:
       responses:
         200:
           description: successful operation
-          id:
-            type: string
-            example: "2"
-          jsonrpc:
-            type: string
-            example: "2.0"
-          result:
-            type: array
-            items:
-              $ref: '#/definitions/ExtenderSetting'
+          schema:
+            id:
+              type: string
+              example: "2"
+            jsonrpc:
+              type: string
+              example: "2.0"
+            result:
+              type: array
+              items:
+                $ref: '#/definitions/ExtenderSetting'
   /api (APIAutoAVSetting.GetExtenderSetting):
     post:
       tags:
@@ -2629,9 +2630,9 @@ definitions:
       deviceName:
         type: string         
       startDate:
-        type: int64          
+        type: integer 
       endDate:
-        type: int64          
+        type: integer 
       dayOfTheWeek:
         type: string         
       hour:
