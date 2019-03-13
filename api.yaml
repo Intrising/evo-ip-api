@@ -2957,4 +2957,4 @@ schemes:
  - http
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /Intrising/Evo-IP/1.0.0
+basePath: /Intrising/Eagleyes/1.0.0
