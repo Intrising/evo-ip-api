@@ -76,7 +76,7 @@ paths:
               result:
                 type: array
                 items:
-                  $ref: '#/definitions/ExtenderSetting'
+                  $ref: '#/definitions/ExtenderQueryInformation'
   /api (APIAutoAVSetting.GetExtenderSetting):
     post:
       tags:
@@ -2643,7 +2643,123 @@ definitions:
         type: object 
         $ref: '#/definitions/ExtenderAction'
 
+  ExtenderQueryInformation:
+    type: object
+    properties:
+      vendor:
+        type: string 
+      deviceName:
+        type: string 
+      macAddress:
+        type: string 
+      ipAddress:
+        type: string 
+      netmask:
+        type: string 
+      gateway:
+        type: string 
+      dhcpStatus:
+        type: boolean
+      displayMode:
+        type: integer    
+      videoOutMode:
+        type: integer    
+      rxScreenMode:
+        type: integer    
+      groupId:
+        type: integer    
+      dipGroupId:
+        type: integer    
+      deviceType:
+        type: string 
+      hdmiMuteFlag:
+        type: boolean
+      audioMuteFlag:
+        type: boolean
+      ledFlag:
+        type: boolean
+      cecFlag:
+        type: boolean
+      cecDetectionFlag:
+        type: boolean
+      learningType:
+        type: string 
+      screenshotpath:
+        type: string 
+      sinkConnection:
+        type: boolean
+      osdIndex:
+        type: integer    
+      osdMute:
+        type: boolean
+      osdResolution:
+        type: string 
+      rxCurrentResoultion:
+        type: string 
+      clientSource:
+        type: integer    
+      edidMode:
+        type: integer    
+      learningEDIDFrom:
+        type: string 
+      homeFlag:
+        type: boolean
+      speedMode:
+        type: string 
+      rotate:
+        type: integer    
 
+      multicastAddress:
+        type: string 
+      txDeviceIpAddress:
+        type: string 
+      remotReceivePort:
+        type: integer    
+
+      fullHDDownScaleMode:
+        type: integer    
+      hdDownScaleMode:
+        type: integer    
+      upScaleMode:
+        type: string 
+      baudRate:
+        type: integer    
+      kBitRate:
+        type: integer    
+      txVersion:
+        type: string 
+      rxVersion:
+        type: string 
+      encoderVersion:
+        type: string 
+      controlVersion:
+        type: string 
+
+      state:
+        type: integer    
+      hdcpStatus:
+        type: boolean
+      lanStatus:
+        type: boolean
+      videoLockStatus:
+        type: string 
+      alive:
+        type: integer    
+      retry:
+        type: integer    
+      portNo:
+        type: integer    
+      factoryDefault:
+        type: boolean
+      infoReady:
+        type: integer    
+
+      lastErrorMessage:
+        type: string 
+      recycleTxIndex:
+        type: integer    
+      verifyGomax:
+        type: bool 
       
   Extender:
     type: object
