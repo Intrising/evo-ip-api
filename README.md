@@ -1,3 +1,3 @@
-# evo-ip-api
+# eagleyes-api
 
-This repo is aimed to provide a public place for the evo-ip-api.yaml file to be readable from request (from [api.evo-ip.io](https://api.evo-ip.io)) and editable to our crew.
+This repo is aimed to provide a public place for the eagleyes-api.yaml file to be readable from request (from [api.eagleyes.io](https://api.eagleyes.io)) and editable to our crew.
