@@ -2263,7 +2263,7 @@ definitions:
     type: object
     properties:
       enabled:
-        type: boolane
+        type: boolean
       dayOfTheWeek:
         type: string
       hour:
