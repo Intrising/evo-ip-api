@@ -2311,7 +2311,7 @@ definitions:
       gateway:
         type: string 
       dhcpStatus:
-        type: bool   
+        type: boolean  
       displayMode:
         type: integer
       videoOutMode:
@@ -2333,13 +2333,13 @@ definitions:
       kBitRate:
         type: integer
       hdmiMuteFlag:
-        type: bool 
+        type: boolean
       audioMuteFlag:
-        type: bool 
+        type: boolean
       ledFlag:
-        type: bool 
+        type: boolean
       cecFlag:
-        type: bool 
+        type: boolean
       learningType:
         type: string 
       screenshotpath:
@@ -2349,7 +2349,7 @@ definitions:
       osdIndex:
         type: integer
       osdMute:
-        type: bool   
+        type: boolean  
       osdResolution:
         type: string 
       edidMode:
@@ -2418,14 +2418,14 @@ definitions:
       id: 
         type: integer            
       active: 
-        type: bool               
+        type: boolean              
       activeIndex: 
         type: integer            
       layout: 
         type: object
         $ref: '#/definitions/VideoWallLayout'
       osd: 
-        type: bool               
+        type: boolean              
       mapping: 
         type: array
         items:
@@ -2453,19 +2453,19 @@ definitions:
     type: object
     properties:
       rxName:
-        type: bool 
+        type: boolean
       rxMacAddress:
-        type: bool 
+        type: boolean
       groupName:
-        type: bool 
+        type: boolean
       rxIpAddress:
-        type: bool 
+        type: boolean
       groupId:
-        type: bool 
+        type: boolean
       groupIpAddress:
-        type: bool 
+        type: boolean
       accessQRCode:
-        type: bool 
+        type: boolean
 
   AutoSetting:
     type: object
