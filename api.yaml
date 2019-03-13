@@ -105,7 +105,7 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/Extender'
+            $ref: '#/definitions/ExtenderSetting'
   /api (APIAutoAVSetting.GetSnapShot):
     post:
       tags:
