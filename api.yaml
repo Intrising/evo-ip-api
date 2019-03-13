@@ -1021,7 +1021,7 @@ paths:
               example: APIAutoAVSetting.DeleteExtenderScheduleConfig
             params:
               type: array
-              items: '#/definition/ExtenderSchedule'
+              items: '#/definitions/ExtenderSchedule'
 
   /api (APIAutoAVSetting.SetExtenderScheduleConfig):
     post:
@@ -1052,7 +1052,7 @@ paths:
               type: string
               example: APIAutoAVSetting.SetExtenderScheduleConfig
             params:
-              $ref: '#/definition/ExtenderSchedule'
+              $ref: '#/definitions/ExtenderSchedule'
       responses:
         200:
           description: successful operation
