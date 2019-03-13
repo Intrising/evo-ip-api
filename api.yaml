@@ -487,8 +487,7 @@ paths:
         description: Object that needs to be set
         required: true
         schema:
-          type: object
-          $ref: '#/definition/ExtenderVideoWall'
+          $ref: '#/definitions/ExtenderVideoWall'
           # properties:
           #   jsonrpc:
           #     type: string
@@ -2409,7 +2408,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ExtenderVideoWall'
-  
   ExtenderVideoWall:
     type: object
     properties:
