@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   # description: ...
   version: 1.0.1
-  title: Evo-IP API
-  description: This document updated in 20190313
+  title: Eagleyes API
+  description: This document updated in 2019313
   updateLog: "Add following APIs
               APIAutoAVSetting.GetUserOSDList
               APIAutoAVSetting.AddUserOSDPhoto
@@ -11,7 +11,7 @@ info:
               APIAutoAVSetting.SetExtenderResolutionCommand
               APIAutoAVSetting.SetExtenderEmailConfig
               APIAutoAVSetting.SetExtenderSMSConfig
-              add /upload to upload files"
+              "
   contact:
     email: walter@intrising.com.tw
 tags:
@@ -700,7 +700,7 @@ paths:
           schema:
             type: integer
             example: 1
-  /api APIAutoAVSetting.SetExtenderOSDMappingCommand:
+  /api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
     post:
       tags:
       - OSD
@@ -745,7 +745,7 @@ paths:
           schema:
             type: integer
             example: 1
-  /api APIAutoAVSetting.SetExtenderAutoOSDConfig:
+  /api (APIAutoAVSetting.SetExtenderAutoOSDConfig):
     post:
       tags:
       - OSD
@@ -949,151 +949,6 @@ paths:
           schema:
             type: integer
             example: 1
-  /upload:
-    post:
-      tags:
-      - OSD
-      summary: 'Upload a photo to pi'
-      operationId: uploadPhoto
-      consumes:
-      - multipart/form-data
-      produces:
-      - multipart/form-data
-      parameters:
-      - in: formData
-        name: upFile
-        description: The file to upload
-        type: file
-        required: true
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: object
-            properties:
-              data:
-                type: object
-                properties:
-                  success: 
-                    type: boolean
-                  saved_as: 
-                    type: string
-                    description: "the uploaded url, need to pass it through APIAutoAVSetting.AddUserOSDPhoto"
-
-  /api (APIAutoAVSetting.AddUserOSDPhoto):
-    post:
-      tags:
-      - OSD
-      summary: 'Add a photo to the OSD config '
-      operationId: AddUserOSDPhoto
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetUserOSDList
-            params:
-              type: string
-              example: "/tmp/photo1.jpg"
-              description: "The path that /upload return"
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: array
-            items:
-              type: string
-              example: "photo1.png"
-  /api (APIAutoAVSetting.GetUserOSDList):
-    post:
-      tags:
-      - OSD
-      summary: 'Get all the exist user OSD photo names'
-      operationId: GetUserOSDList
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetUserOSDList
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: array
-            items:
-              type: string
-              example: "photo1.png"
-
-  /api (APIAutoAVSetting.DeleteUserOSDPhoto):
-    post:
-      tags:
-      - OSD
-      summary: 'Delete the exist user OSD photo'
-      operationId: DeleteUserOSDPhoto
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: array
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.DeleteUserOSDPhoto
-            params:
-              type: string
-              example: "photo1.png"
-    responses:
-        200:
-          description: successful operation
-          schema:
-            type: integer
-            example: 1
 
   /api (APIAutoAVSetting.SetExtenderResolutionCommand):
     post:
@@ -1140,6 +995,25 @@ paths:
           schema:
             type: integer
             example: 1
+  /api (APIAutoAVSetting.DeleteExtenderScheduleConfig):
+    post:
+      tags:
+      - Schedule
+      summary: 'Delete an already applied schedule'
+      operationId: DeleteExtenderScheduleConfig
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        desecription: An array of schedule config you want to delete
+        schema:
+          type: array
+          items:
+            $ref: '#/definition/ExtenderSchedule'
+
   /api (APIAutoAVSetting.SetExtenderScheduleConfig):
     post:
       tags:
@@ -2759,7 +2633,7 @@ definitions:
       recycleTxIndex:
         type: integer    
       verifyGomax:
-        type: bool 
+        type: boolean
       
   Extender:
     type: object
