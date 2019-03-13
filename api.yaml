@@ -73,7 +73,7 @@ paths:
           result:
             type: array
             items:
-              $ref: '#/definitions/Extender'
+              $ref: '#/definitions/ExtenderSetting'
   /api (APIAutoAVSetting.GetExtenderSetting):
     post:
       tags:
