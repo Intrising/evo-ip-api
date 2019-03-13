@@ -1010,9 +1010,18 @@ paths:
         name: body
         desecription: An array of schedule config you want to delete
         schema:
-          type: array
-          items:
-            $ref: '#/definition/ExtenderSchedule'
+          type: object
+          properties:
+            jsonrpc:
+              type: string
+            id:
+              type: string
+            method:
+              type: string
+              example: APIAutoAVSetting.DeleteExtenderScheduleConfig
+            params:
+              type: array
+              items: '#/definition/ExtenderSchedule'
 
   /api (APIAutoAVSetting.SetExtenderScheduleConfig):
     post:
@@ -1043,7 +1052,6 @@ paths:
               type: string
               example: APIAutoAVSetting.SetExtenderScheduleConfig
             params:
-              type: object
               $ref: '#/definition/ExtenderSchedule'
       responses:
         200:
