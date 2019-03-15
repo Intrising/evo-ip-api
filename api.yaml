@@ -13,7 +13,6 @@ info:
               APIAutoAVSetting.SetExtenderSMSConfig
               "
   contact:
-    email: walter@intrising.com.tw
 tags:
 - name: Matrix
   # description: matrix des...
@@ -2956,4 +2955,4 @@ schemes:
  - http
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /Eagleyes/1.0
+basePath: /Eagleyes/1.0.0
