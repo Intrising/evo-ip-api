@@ -2956,8 +2956,4 @@ schemes:
  - http
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-<<<<<<< HEAD
-basePath: /
-=======
-basePath: /Intrising/Eagleyes/1.0.0
->>>>>>> 7a4cc21c8623595624f86582bb842716904a483d
+basePath: /Eagleyes/1.0
