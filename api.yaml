@@ -1168,7 +1168,7 @@ paths:
                   receivers:
                     type: string
                     description: Receivers that will get the email, seperated by ';'
-                    example:  "walter@intrising.com.tw;walter2@intrising.com.tw"
+                    example:  "walter@gmail.com.tw;walter2@gmail.com.tw"
       responses:
         200:
           description: successful operation
@@ -2638,7 +2638,7 @@ definitions:
         type: string 
       recycleTxIndex:
         type: integer    
-      verifyGomax:
+      verifyFactory:
         type: boolean
       
   Extender:
@@ -2780,7 +2780,7 @@ definitions:
       vendor:
         type: string
         example: 'AST'
-      verifyGomax:
+      verifyFactory:
         type: integer
         example: true
       videoLockStatus:
@@ -2945,7 +2945,6 @@ definitions:
 
 # Added by API Auto Mocking Plugin
 # host: virtserver.swaggerhub.com
-# basePath: /Intrising/Evo-IP/1.0.0
 # schemes:
 #  - http
 # Added by API Auto Mocking Plugin
@@ -2957,4 +2956,4 @@ schemes:
  - http
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
-basePath: /Intrising/Evo-IP/1.0.0
+basePath: /
