@@ -5,12 +5,7 @@ info:
   title: Eagleyes API
   description: This document updated in 2019313
   updateLog: "Add following APIs
-              APIAutoAVSetting.GetUserOSDList
-              APIAutoAVSetting.AddUserOSDPhoto
-              APIAutoAVSetting.DeleteUserOSDPhoto
-              APIAutoAVSetting.SetExtenderResolutionCommand
-              APIAutoAVSetting.SetExtenderEmailConfig
-              APIAutoAVSetting.SetExtenderSMSConfig
+              APIAutoAVSetting.DeleteExtenderConfig
               "
   contact:
 tags:
