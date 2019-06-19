@@ -1882,6 +1882,44 @@ paths:
           schema:
             type: integer
             example: 1
+  /api (APIAutoAVSetting.DeleteExtenderConfig):
+    post:
+      tags:
+      - Setup
+      summary: 'Delete extender from config'
+      operationId: DeleteExtenderConfig
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Object that needs to be set
+        required: true
+        schema:
+          type: object
+          properties:
+            jsonrpc:
+              type: string
+              example: "2.0"
+            id:
+              type: string
+              example: "20"
+              description: sequence number
+            method:
+              type: string
+              example: APIAutoAVSetting.DeleteExtenderConfig
+            params:
+              type: string
+              description: target extender macaddress
+              example: "28:60:12:45:12:A4"
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: integer
+            example: 1
   /api (APIAutoAVSetting.SetExtenderEDIDCommand):
     post:
       tags:
