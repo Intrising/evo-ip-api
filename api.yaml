@@ -2051,6 +2051,7 @@ paths:
           schema:
             type: integer
             example: 1
+  
   /api (APIAutoAVSetting.SetExtenderEDIDCommand):
     post:
       tags:
@@ -2098,6 +2099,64 @@ paths:
                   type: string
                   example: "11:22:33:12:54:A3"
                   description: empty if edidMode = 1, target extender macaddress if edidMode = 2
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: integer
+            example: 1
+  
+  /api (APIAutoAVSetting.SetExtenderBaudRateCommand):
+    post:
+      tags:
+      - Setup
+      summary: 'Set extender rs232 baudRate'
+      operationId: SetExtenderBaudRateCommand
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Object that needs to be set
+        required: true
+        schema:
+          type: object
+          properties:
+            jsonrpc:
+              type: string
+              example: "2.0"
+            id:
+              type: string
+              example: "20"
+              description: sequence number
+            method:
+              type: string
+              example: APIAutoAVSetting.SetExtenderBaudRateCommand
+            params:
+              type: object
+              properties:
+                macAddress:
+                  type: string
+                  description: target extender macaddress
+                  example: "28:60:12:45:12:A4"
+                value:
+                  type: integer
+                  description: Set the baudRate you want to set
+                  items:
+                    type: integer
+                    enum:
+                    - 300
+                    - 600
+                    - 1200
+                    - 2400
+                    - 4800
+                    - 9600
+                    - 19200
+                    - 38400
+                    - 57600
+                    - 115200
       responses:
         200:
           description: successful operation
