@@ -2143,20 +2143,8 @@ paths:
                   example: "28:60:12:45:12:A4"
                 value:
                   type: integer
-                  description: Set the baudRate you want to set
-                  items:
-                    type: integer
-                    enum:
-                    - 300
-                    - 600
-                    - 1200
-                    - 2400
-                    - 4800
-                    - 9600
-                    - 19200
-                    - 38400
-                    - 57600
-                    - 115200
+                  description: Set the baudRate you want to set, support 300,600,1200,2400,4800,9600,19200,38400,57600,115200
+                  example: 300 
       responses:
         200:
           description: successful operation
