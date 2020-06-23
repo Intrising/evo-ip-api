@@ -708,7 +708,7 @@ paths:
             type: integer
             example: 1
 
-/api (APIAutoAVSetting.SetExtenderRotateCommand):
+  /api (APIAutoAVSetting.SetExtenderRotateCommand):
     post:
       tags:
       - VideoWall
@@ -753,7 +753,7 @@ paths:
           schema:
             type: integer
             example: 1
-/api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
+  /api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
     post:
       tags:
       - OSD
