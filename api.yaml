@@ -753,9 +753,7 @@ paths:
           schema:
             type: integer
             example: 1
-
-
-  /api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
+/api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
     post:
       tags:
       - OSD
