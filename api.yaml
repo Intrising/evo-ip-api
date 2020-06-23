@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  version: 1.0.1
+  version: 1.0.2
   title: Evo-IP API
-  description: This document updated in 20180920
+  description: This document updated in 20200623, add SetExtenderRotateCommand
   contact:
     email: walter@intrising.com.tw
 tags:
@@ -707,6 +707,54 @@ paths:
           schema:
             type: integer
             example: 1
+
+/api (APIAutoAVSetting.SetExtenderRotateCommand):
+    post:
+      tags:
+      - VideoWall
+      summary: 'Update extender'
+      operationId: SetExtenderRotateCommand
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Object that needs to be set
+        required: true
+        schema:
+          type: object
+          properties:
+            jsonrpc:
+              type: string
+              example: '2.0'
+            id:
+              type: string
+              example: '20'
+              description: sequence number
+            method:
+              type: string
+              example: APIAutoAVSetting.SetExtenderRotateCommand
+            params:
+              type: object
+              properties:
+                macAddress:
+                  type: string
+                  description: target rx macaddress
+                  example: '28:60:12:45:12:A4'
+                value:
+                  type: integer
+                  description: rotate degrees, 0, 180, 270
+                  example: 0
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: integer
+            example: 1
+
+
   /api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
     post:
       tags:
