@@ -186,11 +186,11 @@ paths:
               properties:
                 macAddress:
                   type: string
-                  description: macaddress of rx
+                  description: macaddress of rx/tx, case-sensitive
                   example: '28:60:12:45:12:A4'
                 value:
-                  type: string
-                  description: group id of tx
+                  type: integer
+                  description: group id you want to set
                   example: 2
       responses:
         200:
