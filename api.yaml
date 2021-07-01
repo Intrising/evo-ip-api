@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.0.2
+  version: 1.0.3
   title: Evo-IP API
   description: This document updated in 20200623, add SetExtenderRotateCommand
   contact:
@@ -157,7 +157,7 @@ paths:
     post:
       tags:
       - Matrix
-      summary: 'Set the rx tx mapping by groupId'
+      summary: 'Set the rx tx mapping by groupId, the mac address is case-sensitive'
       operationId: SetExtenderGroupIdCommand
       consumes:
       - application/json
