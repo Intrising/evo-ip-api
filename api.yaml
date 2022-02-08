@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 1.0.3
   title: Evo-IP API
@@ -6,192 +6,192 @@ info:
   contact:
     email: walter@intrising.com.tw
 tags:
-- name: Matrix
-  # description: matrix des...
-- name: VideoWall
-  # description: videowall des...
-- name: OSD
-  # description: osd des...
-- name: Schedule
-  # description: schedule des...
-- name: Event
-  # description: event des...
-- name: Access
-  # description: access des...
-- name: Setup
-  # description: setup des...
-- name: Log
-  # description: log des...
-- name: System
-  # description: system des...
+  - name: Matrix
+    # description: matrix des...
+  - name: VideoWall
+    # description: videowall des...
+  - name: OSD
+    # description: osd des...
+  - name: Schedule
+    # description: schedule des...
+  - name: Event
+    # description: event des...
+  - name: Access
+    # description: access des...
+  - name: Setup
+    # description: setup des...
+  - name: Log
+    # description: log des...
+  - name: System
+    # description: system des...
 paths:
   /api (APIAutoAVSetting.GetExtenderLists):
     post:
       tags:
-      - Matrix
+        - Matrix
       summary: Get the extender data
       operationId: GetExtenderLists
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetExtenderLists
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetExtenderLists
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/ExtenderQueryInfo'
+            $ref: "#/definitions/ExtenderQueryInfo"
   /api (APIAutoAVSetting.GetExtenderSetting):
     post:
       tags:
-      - Matrix
+        - Matrix
       summary: Get the extender configs
       operationId: GetExtenderSetting
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetExtenderSetting
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetExtenderSetting
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/ExtenderSetting'
+            $ref: "#/definitions/ExtenderSetting"
   /api (APIAutoAVSetting.GetSnapShot):
     post:
       tags:
-      - Matrix
-      summary: 'Get the video snapshot data'
+        - Matrix
+      summary: "Get the video snapshot data"
       operationId: GetSnapShot
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetSnapShot
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetSnapShot
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/Snapshot'
+            $ref: "#/definitions/Snapshot"
   /api (APIAutoAVSetting.GetMiscSetting):
     post:
       tags:
-      - Matrix
-      summary: 'Get the misc setting'
+        - Matrix
+      summary: "Get the misc setting"
       operationId: GetMiscSetting
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetMiscSetting
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetMiscSetting
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/ExtenderMisc'
+            $ref: "#/definitions/ExtenderMisc"
   /api (APIAutoAVSetting.SetExtenderGroupIdCommand):
     post:
       tags:
-      - Matrix
-      summary: 'Set the rx tx mapping by groupId, the mac address is case-sensitive'
+        - Matrix
+      summary: "Set the rx tx mapping by groupId, the mac address is case-sensitive"
       operationId: SetExtenderGroupIdCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderGroupIdCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: macaddress of rx/tx, case-sensitive
-                  example: '28:60:12:45:12:A4'
-                value:
-                  type: integer
-                  description: group id you want to set
-                  example: 2
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderGroupIdCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: macaddress of rx/tx, case-sensitive
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: integer
+                    description: group id you want to set
+                    example: 2
       responses:
         200:
           description: successful operation
@@ -201,35 +201,35 @@ paths:
   /api (APIAutoAVSetting.SetExtenderMapping):
     post:
       tags:
-      - Matrix
-      summary: 'Save current extender mapping to the preset'
+        - Matrix
+      summary: "Save current extender mapping to the preset"
       operationId: SetExtenderMapping
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderMapping
-            params:
-              type: array
-              items:
-                $ref: '#/definitions/ExtenderMapping'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderMapping
+              params:
+                type: array
+                items:
+                  $ref: "#/definitions/ExtenderMapping"
       responses:
         200:
           description: successful operation
@@ -239,38 +239,38 @@ paths:
   /api (APIAutoAVSetting.SetCurrentExtenderMapping):
     post:
       tags:
-      - Matrix
-      summary: 'Load the preset as the current extender mapping'
+        - Matrix
+      summary: "Load the preset as the current extender mapping"
       operationId: SetCurrentExtenderMapping
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetCurrentExtenderMapping
-            params:
-              type: object
-              properties:
-                value:
-                  type: integer
-                  example: 3
-                  description: the preset index you want to set
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetCurrentExtenderMapping
+              params:
+                type: object
+                properties:
+                  value:
+                    type: integer
+                    example: 3
+                    description: the preset index you want to set
       responses:
         200:
           description: successful operation
@@ -280,42 +280,42 @@ paths:
   /api (APIAutoAVSetting.SetExtenderClientSourceCommand):
     post:
       tags:
-      - Matrix
-      summary: 'Swich the rx client source'
+        - Matrix
+      summary: "Swich the rx client source"
       operationId: SetExtenderClientSourceCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderClientSourceCommand
-            params:
-              type: object
-              properties:
-                value:
-                  type: integer
-                  description: 1 for the source from ethernet, 2 for the source from local HDMI port
-                  example: "2"
-                macAddress:
-                  type: string
-                  description: the rx you want to switch client source
-                  example: '28:60:12:45:12:A4'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderClientSourceCommand
+              params:
+                type: object
+                properties:
+                  value:
+                    type: integer
+                    description: 1 for the source from ethernet, 2 for the source from local HDMI port
+                    example: "2"
+                  macAddress:
+                    type: string
+                    description: the rx you want to switch client source
+                    example: "28:60:12:45:12:A4"
       responses:
         200:
           description: successful operation
@@ -325,41 +325,41 @@ paths:
   /api (APIAutoAVSetting.SetExtenderCECCommand):
     post:
       tags:
-      - Matrix
-      summary: 'Switch the cec value of extender'
+        - Matrix
+      summary: "Switch the cec value of extender"
       operationId: SetExtenderCECCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderCECCommand
-            params:
-              type: object
-              properties:
-                value:
-                  type: boolean
-                  example: true
-                macAddress:
-                  type: string
-                  description: the extender you want to set cec
-                  example: '28:60:12:45:12:A4'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderCECCommand
+              params:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    example: true
+                  macAddress:
+                    type: string
+                    description: the extender you want to set cec
+                    example: "28:60:12:45:12:A4"
       responses:
         200:
           description: successful operation
@@ -369,41 +369,41 @@ paths:
   /api (APIAutoAVSetting.SetExtenderHDMIMuteCommand):
     post:
       tags:
-      - Matrix
-      summary: 'Mute the extender hdmi'
+        - Matrix
+      summary: "Mute the extender hdmi"
       operationId: SetExtenderHDMIMuteCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderHDMIMuteCommand
-            params:
-              type: object
-              properties:
-                value:
-                  type: boolean
-                  example: true
-                macAddress:
-                  type: string
-                  description: the extender you want to mute
-                  example: '28:60:12:45:12:A4'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderHDMIMuteCommand
+              params:
+                type: object
+                properties:
+                  value:
+                    type: boolean
+                    example: true
+                  macAddress:
+                    type: string
+                    description: the extender you want to mute
+                    example: "28:60:12:45:12:A4"
       responses:
         200:
           description: successful operation
@@ -414,38 +414,38 @@ paths:
   /api (APIAutoAVSetting.SetActiveVideoWallConfig):
     post:
       tags:
-      - VideoWall
-      summary: 'Set videoWall config active or deactive'
+        - VideoWall
+      summary: "Set videoWall config active or deactive"
       operationId: SetActiveVideoWallConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetActiveVideoWallConfig
-            params:
-              type: array
-              items:
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
                 type: string
-                enum:
-                - 'VW12312'
-                - 'video1'
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetActiveVideoWallConfig
+              params:
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - "VW12312"
+                    - "video1"
       responses:
         200:
           description: successful operation
@@ -456,54 +456,54 @@ paths:
   /api (APIAutoAVSetting.UpdateExtenderVideoWallTxSetting):
     post:
       tags:
-      - VideoWall
-      summary: 'Update a tx in a single mapping of a videowall'
+        - VideoWall
+      summary: "Update a tx in a single mapping of a videowall"
       operationId: UpdateExtenderVideoWallTxSetting
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.UpdateExtenderVideoWallTxSetting
-            params:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 1
-                  description: This id is the id of the videowall starting from 1
-                row:
-                  type: integer
-                  example: 0
-                  description: Row is the row position of the mapping of a videowall starting from 0
-                column:
-                  type: integer
-                  example: 0
-                  description: Column is the row position of the mapping of a videowall starting from 0
-                txName:
-                  type: string
-                  example: tx123
-                  description: txName is the name of the tx you want to set to the mapping
-                groupId:
-                  type: integer
-                  example: 65
-                  description: groupId is the current groupId of the tx you want to set to the mapping
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.UpdateExtenderVideoWallTxSetting
+              params:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                    description: This id is the id of the videowall starting from 1
+                  row:
+                    type: integer
+                    example: 0
+                    description: Row is the row position of the mapping of a videowall starting from 0
+                  column:
+                    type: integer
+                    example: 0
+                    description: Column is the row position of the mapping of a videowall starting from 0
+                  txName:
+                    type: string
+                    example: tx123
+                    description: txName is the name of the tx you want to set to the mapping
+                  groupId:
+                    type: integer
+                    example: 65
+                    description: groupId is the current groupId of the tx you want to set to the mapping
       responses:
         200:
           description: successful operation
@@ -514,66 +514,66 @@ paths:
   /api (APIAutoAVSetting.AddExtenderVideoWallConfig):
     post:
       tags:
-      - VideoWall
-      summary: 'Add a new extender videowall config'
+        - VideoWall
+      summary: "Add a new extender videowall config"
       operationId: AddExtenderVideoWallConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.AddExtenderVideoWallConfig
-            params:
-              type: object
-              properties:
-                active:
-                  type: boolean
-                  example: false
-                activeIndex:
-                  type: integer
-                  example: -1
-                id:
-                  type: integer
-                  description: Please noted this id must be the length of the videoWall list plus 1
-                  example: 1
-                layout:
-                  type: object
-                  properties:
-                    columns:
-                      type: integer
-                      example: 3
-                    rows:
-                      type: integer
-                      example: 2
-                name:
-                  type: string
-                  example: 'VW7387'
-                osd:
-                  type: boolean
-                  example: false
-                mapping:
-                  type: array
-                  items:
-                    $ref: '#/definitions/VideoWallMapping'
-                  description: |
-                    WebUI default will set empty mapping to generate the table
-                    Highly recommended to do so to avoid UI crash
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.AddExtenderVideoWallConfig
+              params:
+                type: object
+                properties:
+                  active:
+                    type: boolean
+                    example: false
+                  activeIndex:
+                    type: integer
+                    example: -1
+                  id:
+                    type: integer
+                    description: Please noted this id must be the length of the videoWall list plus 1
+                    example: 1
+                  layout:
+                    type: object
+                    properties:
+                      columns:
+                        type: integer
+                        example: 3
+                      rows:
+                        type: integer
+                        example: 2
+                  name:
+                    type: string
+                    example: "VW7387"
+                  osd:
+                    type: boolean
+                    example: false
+                  mapping:
+                    type: array
+                    items:
+                      $ref: "#/definitions/VideoWallMapping"
+                    description: |
+                      WebUI default will set empty mapping to generate the table
+                      Highly recommended to do so to avoid UI crash
       responses:
         200:
           description: successful operation
@@ -584,35 +584,35 @@ paths:
   /api (APIAutoAVSetting.DeleteExtenderVideoWallConfig):
     post:
       tags:
-      - VideoWall
-      summary: 'Delete a videowall config'
+        - VideoWall
+      summary: "Delete a videowall config"
       operationId: DeleteExtenderVideoWallConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.DeleteExtenderVideoWallConfig
-            params:
-              type: string
-              description: name of the videowall config you want to delete
-              example: 'VW12'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.DeleteExtenderVideoWallConfig
+              params:
+                type: string
+                description: name of the videowall config you want to delete
+                example: "VW12"
       responses:
         200:
           description: successful operation
@@ -622,49 +622,51 @@ paths:
   /api (APIAutoAVSetting.SetVideoWallOSDConfig):
     post:
       tags:
-      - VideoWall
-      summary: 'Set the OSD config in the videowall config'
+        - VideoWall
+      summary: "Set the OSD config in the videowall config"
       operationId: SetVideoWallOSDConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetVideoWallOSDConfig
-            params:
-              type: object
-              properties:
-                enabled:
-                  type: boolean
-                  description: set osd enabled
-                  example: true
-                entry:
-                  type: object
-                  properties:
-                    macAddress:
-                      type: string
-                      description: the rx macaddress in the current videowall config
-                      example: 'aa:12:33:41:b3:21'
-                    value:
-                      type: integer
-                      description: the index of rx in this videowall config
-                      example: 2
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetVideoWallOSDConfig
+              params:
+                type: object
+                properties:
+                  enabled:
+                    type: boolean
+                    description: set osd enabled
+                    example: true
+                  entry:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        macAddress:
+                          type: string
+                          description: the rx macaddress in the current videowall config
+                          example: "aa:12:33:41:b3:21"
+                        value:
+                          type: integer
+                          description: the index of rx in this videowall config
+                          example: 2
       responses:
         200:
           description: successful operation
@@ -674,79 +676,79 @@ paths:
   /api (APIAutoAVSetting.UpdateExtenderVideoWallConfig):
     post:
       tags:
-      - VideoWall
-      summary: 'Update single videowall config to extender'
+        - VideoWall
+      summary: "Update single videowall config to extender"
       operationId: UpdateExtenderVideoWallConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.UpdateExtenderVideoWallConfig
-            params:
-              $ref: '#/definitions/ExtenderVideoWall'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.UpdateExtenderVideoWallConfig
+              params:
+                $ref: "#/definitions/ExtenderVideoWall"
       responses:
         200:
           description: successful operation
           schema:
             type: integer
             example: 1
-  
+
   /api (APIAutoAVSetting.SetExtenderOSDMappingCommand):
     post:
       tags:
-      - OSD
-      summary: 'Set osd mapping to rx'
+        - OSD
+      summary: "Set osd mapping to rx"
       operationId: SetExtenderOSDMappingCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderOSDMappingCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target rx macaddress
-                  example: '28:60:12:45:12:A4'
-                value:
-                  type: integer
-                  description: osd index
-                  example: 2
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderOSDMappingCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target rx macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: integer
+                    description: osd index
+                    example: 2
       responses:
         200:
           description: successful operation
@@ -756,72 +758,72 @@ paths:
   /api (APIAutoAVSetting.SetExtenderAutoOSDConfig):
     post:
       tags:
-      - OSD
-      summary: 'Set the auto OSD config'
+        - OSD
+      summary: "Set the auto OSD config"
       operationId: SetExtenderAutoOSDConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderAutoOSDConfig
-            params:
-              type: object
-              properties:
-                setting:
-                  type: object
-                  properties:
-                    backgroudColor:
-                      type: integer
-                    textColor:
-                      type: string
-                      example: '#ff0000'
-                    timeout:
-                      type: integer
-                      example: 5
-                    transparency:
-                      type: integer
-                      example: 0
-                status:
-                  type: object
-                  properties:
-                    accessQRCode:
-                      type: boolean
-                      example: false
-                    groupId:
-                      type: boolean
-                      example: false
-                    groupIpAddress:
-                      type: boolean
-                      example: false
-                    groupName:
-                      type: boolean
-                      example: false
-                    rxIpAddress:
-                      type: boolean
-                      example: false
-                    rxMacAddress:
-                      type: boolean
-                      example: false
-                    rxName:
-                      type: boolean
-                      example: false
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderAutoOSDConfig
+              params:
+                type: object
+                properties:
+                  setting:
+                    type: object
+                    properties:
+                      backgroudColor:
+                        type: integer
+                      textColor:
+                        type: string
+                        example: "#ff0000"
+                      timeout:
+                        type: integer
+                        example: 5
+                      transparency:
+                        type: integer
+                        example: 0
+                  status:
+                    type: object
+                    properties:
+                      accessQRCode:
+                        type: boolean
+                        example: false
+                      groupId:
+                        type: boolean
+                        example: false
+                      groupIpAddress:
+                        type: boolean
+                        example: false
+                      groupName:
+                        type: boolean
+                        example: false
+                      rxIpAddress:
+                        type: boolean
+                        example: false
+                      rxMacAddress:
+                        type: boolean
+                        example: false
+                      rxName:
+                        type: boolean
+                        example: false
       responses:
         200:
           description: successful operation
@@ -831,126 +833,126 @@ paths:
   /api (APIAutoAVSetting.SetExtenderCustomOSDConfig):
     post:
       tags:
-      - OSD
-      summary: 'Set the custom OSD config'
+        - OSD
+      summary: "Set the custom OSD config"
       operationId: SetExtenderCustomOSDConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderCustomOSDConfig
-            params:
-              type: object
-              properties:
-                index:
-                  type: integer
-                  example: 3
-                name:
-                  type: string
-                  example: 'custom OSD'
-                customType:
-                  type: array
-                  description: one of the 'image', 'message'
-                  items:
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderCustomOSDConfig
+              params:
+                type: object
+                properties:
+                  index:
+                    type: integer
+                    example: 3
+                  name:
                     type: string
-                    enum:
-                    - image
-                    - message
-                    default: 'message'
-                transparency:
-                  type: integer
-                  example: 50
-                message:
-                  type: string
-                  example: 'hello'
-                position:
-                  type: object
-                  properties:
-                    alignment:
-                      type: array
-                      description: one of the 'topLeft', 'top', 'topRight', 'left', 'center', 'right', 'bottomLeft', 'bottom', 'bottomRight'
-                      items:
+                    example: "custom OSD"
+                  customType:
+                    type: array
+                    description: one of the 'image', 'message'
+                    items:
+                      type: string
+                      enum:
+                        - image
+                        - message
+                      default: "message"
+                  transparency:
+                    type: integer
+                    example: 50
+                  message:
+                    type: string
+                    example: "hello"
+                  position:
+                    type: object
+                    properties:
+                      alignment:
+                        type: array
+                        description: one of the 'topLeft', 'top', 'topRight', 'left', 'center', 'right', 'bottomLeft', 'bottom', 'bottomRight'
+                        items:
+                          type: string
+                          enum:
+                            - "topLeft"
+                            - "top"
+                            - "topRight"
+                            - "left"
+                            - "center"
+                            - "right"
+                            - "bottomLeft"
+                            - "bottom"
+                            - "bottomRight"
+                          default: "top"
+                      offsetX:
                         type: string
-                        enum:
-                        - 'topLeft'
-                        - 'top'
-                        - 'topRight'
-                        - 'left'
-                        - 'center'
-                        - 'right'
-                        - 'bottomLeft'
-                        - 'bottom'
-                        - 'bottomRight'
-                        default: 'top'
-                    offsetX:
-                      type: string
-                      description: should be deprecated. WebUI is not using it now.
-                    offsetY:
-                      type: string
-                      description: should be deprecated. WebUI is not using it now.
-                    height:
-                      type: string
-                      description: should be deprecated. WebUI is not using it now.
-                    width:
-                      type: string
-                      description: should be deprecated. WebUI is not using it now.
-                image:
-                  type: object
-                  properties:
-                    cyclePlayInterval:
-                      type: integer
-                      description: cycle play interval
-                      example: 10
-                    cyclePlayType:
-                      type: array
-                      description: one of the 'order', 'random'
-                      items:
+                        description: should be deprecated. WebUI is not using it now.
+                      offsetY:
                         type: string
-                        enum:
-                        - 'order'
-                        - 'random'
-                        default: 'order'
-                    subType:
-                      type: array
-                      description: one of the 'single', 'multi'
-                      items:
+                        description: should be deprecated. WebUI is not using it now.
+                      height:
                         type: string
-                        enum:
-                        - 'single'
-                        - 'multi'
-                        default: 'single'
-                    photoLists:
-                      type: array
-                      description: the img index order you want to play
-                      items:
+                        description: should be deprecated. WebUI is not using it now.
+                      width:
                         type: string
-                        enum:
-                        - '1'
-                        - '2'
-                        - '3'
-                theme:
-                  type: object
-                  properties:
-                    photoPath:
-                      type: string
-                      description: should be deprecated. WebUI is not using it now.
+                        description: should be deprecated. WebUI is not using it now.
+                  image:
+                    type: object
+                    properties:
+                      cyclePlayInterval:
+                        type: integer
+                        description: cycle play interval
+                        example: 10
+                      cyclePlayType:
+                        type: array
+                        description: one of the 'order', 'random'
+                        items:
+                          type: string
+                          enum:
+                            - "order"
+                            - "random"
+                          default: "order"
+                      subType:
+                        type: array
+                        description: one of the 'single', 'multi'
+                        items:
+                          type: string
+                          enum:
+                            - "single"
+                            - "multi"
+                          default: "single"
+                      photoLists:
+                        type: array
+                        description: the img index order you want to play
+                        items:
+                          type: string
+                          enum:
+                            - "1"
+                            - "2"
+                            - "3"
+                  theme:
+                    type: object
+                    properties:
+                      photoPath:
+                        type: string
+                        description: should be deprecated. WebUI is not using it now.
       responses:
         200:
           description: successful operation
@@ -960,19 +962,19 @@ paths:
   /upload:
     post:
       tags:
-      - OSD
-      summary: 'Upload a photo to pi'
+        - OSD
+      summary: "Upload a photo to pi"
       operationId: uploadPhoto
       consumes:
-      - multipart/form-data
+        - multipart/form-data
       produces:
-      - multipart/form-data
+        - multipart/form-data
       parameters:
-      - in: formData
-        name: upFile
-        description: The file to upload
-        type: file
-        required: true
+        - in: formData
+          name: upFile
+          description: The file to upload
+          type: file
+          required: true
       responses:
         200:
           description: successful operation
@@ -991,35 +993,35 @@ paths:
   /api (APIAutoAVSetting.AddUserOSDPhoto):
     post:
       tags:
-      - OSD
-      summary: 'Add a photo to the OSD config '
+        - OSD
+      summary: "Add a photo to the OSD config "
       operationId: AddUserOSDPhoto
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetUserOSDList
-            params:
-              type: string
-              example: "/tmp/photo1.jpg"
-              description: "The path that /upload return"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetUserOSDList
+              params:
+                type: string
+                example: "/tmp/photo1.jpg"
+                description: "The path that /upload return"
       responses:
         200:
           description: successful operation
@@ -1031,31 +1033,31 @@ paths:
   /api (APIAutoAVSetting.GetUserOSDList):
     post:
       tags:
-      - OSD
-      summary: 'Get all the exist user OSD photo names'
+        - OSD
+      summary: "Get all the exist user OSD photo names"
       operationId: GetUserOSDList
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetUserOSDList
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetUserOSDList
       responses:
         200:
           description: successful operation
@@ -1068,34 +1070,34 @@ paths:
   /api (APIAutoAVSetting.DeleteUserOSDPhoto):
     post:
       tags:
-      - OSD
-      summary: 'Delete the exist user OSD photo'
+        - OSD
+      summary: "Delete the exist user OSD photo"
       operationId: DeleteUserOSDPhoto
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.DeleteUserOSDPhoto
-            params:
-              type: string
-              example: "photo1.png"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.DeleteUserOSDPhoto
+              params:
+                type: string
+                example: "photo1.png"
       responses:
         200:
           description: successful operation
@@ -1106,42 +1108,42 @@ paths:
   /api (APIAutoAVSetting.SetExtenderResolutionCommand):
     post:
       tags:
-      - OSD
-      summary: 'Set the extender osd resolution'
+        - OSD
+      summary: "Set the extender osd resolution"
       operationId: SetExtenderResolutionCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderResolutionCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  example: "aa:bb:cc:dd:ee:11"
-                  description: "The macAddress of the target extender"
-                value:
-                  type: string
-                  example: "640x480@60"
-                  description: "The supported resolution string"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderResolutionCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    example: "aa:bb:cc:dd:ee:11"
+                    description: "The macAddress of the target extender"
+                  value:
+                    type: string
+                    example: "640x480@60"
+                    description: "The supported resolution string"
       responses:
         200:
           description: successful operation
@@ -1151,75 +1153,75 @@ paths:
   /api (APIAutoAVSetting.SetExtenderScheduleConfig):
     post:
       tags:
-      - Schedule
-      summary: 'Set the extender schedule'
+        - Schedule
+      summary: "Set the extender schedule"
       operationId: SetExtenderScheduleConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderScheduleConfig
-            params:
-              type: object
-              properties:
-                rawIndex:
-                  type: integer
-                  example: 0
-                  description: "schedule index"
-                deviceType:
-                  type: string
-                  example: 'TX'
-                deviceName:
-                  type: string
-                  example: 'txA'
-                startDate:
-                  type: integer
-                  description: Unix Timestamp
-                  example: 1520837143
-                endDate:
-                  type: integer
-                  description: second
-                  example: 1520837143
-                dayOfTheWeek:
-                  type: integer
-                  description: 0~6 , 0 is Sunday
-                  example: 2
-                hour:
-                  type: integer
-                  example: 8
-                minute:
-                  type: integer
-                  example: 21
-                action:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                      description: EnablePoE ,DisablePoE , Reboot , Hotplug , Sms , Email , Alarm
-                      example: 'reboot'
-                    key:
-                      type: string
-                      description: Don't use dot ','
-                    duration:
-                      type: integer
-                      example: 20
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderScheduleConfig
+              params:
+                type: object
+                properties:
+                  rawIndex:
+                    type: integer
+                    example: 0
+                    description: "schedule index"
+                  deviceType:
+                    type: string
+                    example: "TX"
+                  deviceName:
+                    type: string
+                    example: "txA"
+                  startDate:
+                    type: integer
+                    description: Unix Timestamp
+                    example: 1520837143
+                  endDate:
+                    type: integer
+                    description: second
+                    example: 1520837143
+                  dayOfTheWeek:
+                    type: integer
+                    description: 0~6 , 0 is Sunday
+                    example: 2
+                  hour:
+                    type: integer
+                    example: 8
+                  minute:
+                    type: integer
+                    example: 21
+                  action:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: EnablePoE ,DisablePoE , Reboot , Hotplug , Sms , Email , Alarm
+                        example: "reboot"
+                      key:
+                        type: string
+                        description: Don't use dot ','
+                      duration:
+                        type: integer
+                        example: 20
       responses:
         200:
           description: successful operation
@@ -1229,68 +1231,68 @@ paths:
   /api (APIAutoAVSetting.SetExtenderEventsConfig):
     post:
       tags:
-      - Event
-      summary: 'Set the extender event'
+        - Event
+      summary: "Set the extender event"
       operationId: SetExtenderEventsConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderEventsConfig
-            params:
-              type: object
-              properties:
-                deviceType:
-                  type: string
-                  example: 'TX'
-                deviceName:
-                  type: string
-                  example: 'txB'
-                event:
-                  type: array
-                  items:
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderEventsConfig
+              params:
+                type: object
+                properties:
+                  deviceType:
                     type: string
-                    enum:
-                    - videoLost
-                    - connectionLost
-                actions:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      duation:
-                        type: integer
-                        description: should be deprecated
-                        example: 0
-                      key:
-                        type: string
-                        description: name of the email or sms group, conbined with ;
-                        example: 'new_group_0;new_group_1'
-                      name:
-                        type: array
-                        description: action name
-                        items:
+                    example: "TX"
+                  deviceName:
+                    type: string
+                    example: "txB"
+                  event:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                        - videoLost
+                        - connectionLost
+                  actions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        duation:
+                          type: integer
+                          description: should be deprecated
+                          example: 0
+                        key:
                           type: string
-                          enum:
-                          - 'email'
-                          - 'sms'
+                          description: name of the email or sms group, conbined with ;
+                          example: "new_group_0;new_group_1"
+                        name:
+                          type: array
+                          description: action name
+                          items:
+                            type: string
+                            enum:
+                              - "email"
+                              - "sms"
       responses:
         200:
           description: successful operation
@@ -1300,44 +1302,44 @@ paths:
   /api (APIAutoAVSetting.SetExtenderEmailConfig):
     post:
       tags:
-      - Event
-      summary: 'Set the event email'
+        - Event
+      summary: "Set the event email"
       operationId: SetExtenderEmailConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderEmailConfig
-            params:
-              type: array
-              items:
-                type: object
-                properties:
-                  groupName:
-                    type: string
-                    description: the group name of this group
-                    example: "group1"
-                  receivers:
-                    type: string
-                    description: Receivers that will get the email, seperated by ';'
-                    example:  "walter@intrising.com.tw;walter2@intrising.com.tw"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderEmailConfig
+              params:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    groupName:
+                      type: string
+                      description: the group name of this group
+                      example: "group1"
+                    receivers:
+                      type: string
+                      description: Receivers that will get the email, seperated by ';'
+                      example: "walter@intrising.com.tw;walter2@intrising.com.tw"
       responses:
         200:
           description: successful operation
@@ -1348,44 +1350,44 @@ paths:
   /api (APIAutoAVSetting.SetExtenderSmsConfig):
     post:
       tags:
-      - Event
-      summary: 'Set the event email'
+        - Event
+      summary: "Set the event email"
       operationId: SetExtenderSmsConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderSmsConfig
-            params:
-              type: array
-              items:
-                type: object
-                properties:
-                  groupName:
-                    type: string
-                    description: the group name of this group
-                    example: "group1"
-                  receivers:
-                    type: string
-                    description: Receivers that will get the SMS, seperated by ';'
-                    example:  "8860972201635;8860912345678"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderSmsConfig
+              params:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    groupName:
+                      type: string
+                      description: the group name of this group
+                      example: "group1"
+                    receivers:
+                      type: string
+                      description: Receivers that will get the SMS, seperated by ';'
+                      example: "8860972201635;8860912345678"
       responses:
         200:
           description: successful operation
@@ -1395,58 +1397,58 @@ paths:
   /api (APIAutoAVSetting.SetExtenderAccessConfig):
     post:
       tags:
-      - Access
-      summary: 'Set the extender access config'
+        - Access
+      summary: "Set the extender access config"
       operationId: SetExtenderAccessConfig
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderAccessConfig
-            params:
-              type: object
-              properties:
-                account:
-                  type: string
-                  description: access account
-                  example: 't8z85x'
-                deviceName:
-                  type: string
-                  description: device name
-                  example: 'RX_82231C88A77B'
-                deviceType:
-                  type: string
-                  description: device type
-                  example: 'RX'
-                password:
-                  type: string
-                  description: access password
-                  example: 'cr8i5l'
-                rules:
-                  type: array
-                  description: the source name
-                  items:
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderAccessConfig
+              params:
+                type: object
+                properties:
+                  account:
                     type: string
-                    enum:
-                    - 'TX_mac'
-                    - 'TX_024D8DB74F41'
+                    description: access account
+                    example: "t8z85x"
+                  deviceName:
+                    type: string
+                    description: device name
+                    example: "RX_82231C88A77B"
+                  deviceType:
+                    type: string
+                    description: device type
+                    example: "RX"
+                  password:
+                    type: string
+                    description: access password
+                    example: "cr8i5l"
+                  rules:
+                    type: array
+                    description: the source name
+                    items:
+                      type: string
+                      enum:
+                        - "TX_mac"
+                        - "TX_024D8DB74F41"
       responses:
         200:
           description: successful operation
@@ -1457,43 +1459,43 @@ paths:
   /api (APIAutoAVSetting.SetMiscSetting):
     post:
       tags:
-      - Access
-      summary: 'Set the misc setting'
+        - Access
+      summary: "Set the misc setting"
       operationId: SetMiscSetting
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetMiscSetting
-            params:
-              type: object
-              properties:
-                cecEnabled:
-                  type: boolean
-                  example: false
-                qrCodeEnabled:
-                  type: boolean
-                  example: false
-                stopUpdate:
-                  type: boolean
-                  example: false
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetMiscSetting
+              params:
+                type: object
+                properties:
+                  cecEnabled:
+                    type: boolean
+                    example: false
+                  qrCodeEnabled:
+                    type: boolean
+                    example: false
+                  stopUpdate:
+                    type: boolean
+                    example: false
       responses:
         200:
           description: successful operation
@@ -1504,42 +1506,42 @@ paths:
   /api (APIAutoAVSetting.AuthAccessUserAccount):
     post:
       tags:
-      - Access
-      summary: 'Get the auth form user access page'
+        - Access
+      summary: "Get the auth form user access page"
       operationId: AuthAccessUserAccount
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.AuthAccessUserAccount
-            params:
-              type: object
-              properties:
-                account:
-                  type: string
-                  description: access account
-                  example: 't8z85x'
-                password:
-                  type: string
-                  description: access password
-                  example: 'cr8i5l'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.AuthAccessUserAccount
+              params:
+                type: object
+                properties:
+                  account:
+                    type: string
+                    description: access account
+                    example: "t8z85x"
+                  password:
+                    type: string
+                    description: access password
+                    example: "cr8i5l"
       responses:
         200:
           description: successful operation
@@ -1548,10 +1550,10 @@ paths:
             properties:
               rxDeviceName:
                 type: string
-                example: 'rx123'
+                example: "rx123"
               rxDeviceMacAddress:
                 type: string
-                example: '11:22:33:44:55:66'
+                example: "11:22:33:44:55:66"
               rxDeviceAlive:
                 type: boolean
                 example: true
@@ -1560,7 +1562,7 @@ paths:
                 properties:
                   txDeviceName:
                     type: string
-                    example: 'txtest'
+                    example: "txtest"
                   txDeviceGroupId:
                     type: integer
                     example: 64
@@ -1571,7 +1573,7 @@ paths:
                   properties:
                     txDeviceName:
                       type: string
-                      example: 'txtest'
+                      example: "txtest"
                     txDeviceGroupId:
                       type: integer
                       example: 64
@@ -1579,31 +1581,31 @@ paths:
   /api (APIAutoAVSetting.GetAutoAVSetting):
     post:
       tags:
-      - Setup
-      summary: 'Get the auto av setting'
+        - Setup
+      summary: "Get the auto av setting"
       operationId: GetAutoAVSetting
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.GetAutoAVSetting
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.GetAutoAVSetting
       responses:
         200:
           description: successful operation
@@ -1615,47 +1617,47 @@ paths:
                 example: false
               priority:
                 type: string
-                example: 'strict'
+                example: "strict"
                 description: "one of the 'strict', 'high', 'normal'"
 
   /api (APIAutoAVSetting.SetAutoAVSetting):
     post:
       tags:
-      - Setup
-      summary: 'Set the auto av setting'
+        - Setup
+      summary: "Set the auto av setting"
       operationId: SetAutoAVSetting
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetAutoAVSetting
-            params:
-              type: object
-              properties:
-                enabled:
-                  type: boolean
-                  example: false
-                priority:
-                  type: string
-                  example: 'strict'
-                  description: "one of the 'strict', 'high', 'normal'"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetAutoAVSetting
+              params:
+                type: object
+                properties:
+                  enabled:
+                    type: boolean
+                    example: false
+                  priority:
+                    type: string
+                    example: "strict"
+                    description: "one of the 'strict', 'high', 'normal'"
       responses:
         200:
           description: successful operation
@@ -1666,41 +1668,41 @@ paths:
   /api (APIAutoAVSetting.SetExtenderLEDFlashCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender LED flash'
+        - Setup
+      summary: "Set extender LED flash"
       operationId: SetExtenderLEDFlashCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderLEDFlashCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: boolean
-                  example: true
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderLEDFlashCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: boolean
+                    example: true
       responses:
         200:
           description: successful operation
@@ -1710,41 +1712,41 @@ paths:
   /api (APIAutoAVSetting.SetExtenderScreenShot):
     post:
       tags:
-      - Setup
-      summary: 'Set extender screenshot path, for switch icon'
+        - Setup
+      summary: "Set extender screenshot path, for switch icon"
       operationId: SetExtenderScreenShot
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderScreenShot
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: string
-                  example: '2'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderScreenShot
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: string
+                    example: "2"
       responses:
         200:
           description: successful operation
@@ -1754,41 +1756,41 @@ paths:
   /api (APIAutoAVSetting.SetExtenderDeviceNameCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender device name'
+        - Setup
+      summary: "Set extender device name"
       operationId: SetExtenderDeviceNameCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderDeviceNameCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: string
-                  example: 'txtest'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderDeviceNameCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: string
+                    example: "txtest"
       responses:
         200:
           description: successful operation
@@ -1798,42 +1800,42 @@ paths:
   /api (APIAutoAVSetting.SetExtenderInfoDisplayModeCommand):
     post:
       tags:
-      - Setup
-      summary: 'This is the command for ITE, might be unnecessary for this customized version'
+        - Setup
+      summary: "This is the command for ITE, might be unnecessary for this customized version"
       operationId: SetExtenderInfoDisplayModeCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderInfoDisplayModeCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: integer
-                  description: osd index
-                  example: 3
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderInfoDisplayModeCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: integer
+                    description: osd index
+                    example: 3
       responses:
         200:
           description: successful operation
@@ -1843,41 +1845,41 @@ paths:
   /api (APIAutoAVSetting.SetExtenderUpScaleCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set upScale mode of extender'
+        - Setup
+      summary: "Set upScale mode of extender"
       operationId: SetExtenderUpScaleCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderUpScaleCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: macaddress of rx
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: string
-                  example: 'passthrough'
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderUpScaleCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: macaddress of rx
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: string
+                    example: "passthrough"
       responses:
         200:
           description: successful operation
@@ -1887,42 +1889,42 @@ paths:
   /api (APIAutoAVSetting.SetExtenderVideoOutCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set the video out of tx extender'
+        - Setup
+      summary: "Set the video out of tx extender"
       operationId: SetExtenderVideoOutCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderVideoOutCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: macaddress of rx
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: integer
-                  default: 0
-                  description: "one of 1 or 2"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderVideoOutCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: macaddress of rx
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: integer
+                    default: 0
+                    description: "one of 1 or 2"
       responses:
         200:
           description: successful operation
@@ -1932,38 +1934,38 @@ paths:
   /api (APIAutoAVSetting.SetExtenderRebootCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender reboot'
+        - Setup
+      summary: "Set extender reboot"
       operationId: SetExtenderRebootCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderRebootCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderRebootCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
       responses:
         200:
           description: successful operation
@@ -1973,38 +1975,38 @@ paths:
   /api (APIAutoAVSetting.SetExtenderFactoryResetCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender factory default'
+        - Setup
+      summary: "Set extender factory default"
       operationId: SetExtenderFactoryResetCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderFactoryResetCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderFactoryResetCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
       responses:
         200:
           description: successful operation
@@ -2014,138 +2016,138 @@ paths:
   /api (APIAutoAVSetting.SetExtenderHdmiReconnectCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender hdmi reconnect'
+        - Setup
+      summary: "Set extender hdmi reconnect"
       operationId: SetExtenderHdmiReconnectCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderHdmiReconnectCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderHdmiReconnectCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
       responses:
         200:
           description: successful operation
           schema:
             type: integer
             example: 1
-  
+
   /api (APIAutoAVSetting.SetExtenderEDIDCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender edid mode'
+        - Setup
+      summary: "Set extender edid mode"
       operationId: SetExtenderEDIDCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderEDIDCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
-                edidMode:
-                  type: integer
-                  description: 1 for default, 2 for learningEDID
-                  items:
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderEDIDCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
+                  edidMode:
                     type: integer
-                    enum:
-                    - 1
-                    - 2
-                learningEDIDFrom:
-                  type: string
-                  example: "11:22:33:12:54:A3"
-                  description: empty if edidMode = 1, target extender macaddress if edidMode = 2
+                    description: 1 for default, 2 for learningEDID
+                    items:
+                      type: integer
+                      enum:
+                        - 1
+                        - 2
+                  learningEDIDFrom:
+                    type: string
+                    example: "11:22:33:12:54:A3"
+                    description: empty if edidMode = 1, target extender macaddress if edidMode = 2
       responses:
         200:
           description: successful operation
           schema:
             type: integer
             example: 1
-  
+
   /api (APIAutoAVSetting.SetExtenderBaudRateCommand):
     post:
       tags:
-      - Setup
-      summary: 'Set extender rs232 baudRate'
+        - Setup
+      summary: "Set extender rs232 baudRate"
       operationId: SetExtenderBaudRateCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: "2.0"
-            id:
-              type: string
-              example: "20"
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderBaudRateCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target extender macaddress
-                  example: "28:60:12:45:12:A4"
-                value:
-                  type: integer
-                  description: Set the baudRate you want to set, support 300,600,1200,2400,4800,9600,19200,38400,57600,115200
-                  example: 300 
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderBaudRateCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target extender macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: integer
+                    description: Set the baudRate you want to set, support 300,600,1200,2400,4800,9600,19200,38400,57600,115200
+                    example: 300
       responses:
         200:
           description: successful operation
@@ -2155,13 +2157,13 @@ paths:
   /api (APIAutoAVSetting.GetLog):
     post:
       tags:
-      - Log
+        - Log
       summary: "Get the system log"
       operationId: GetLog
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
         - in: body
           name: body
@@ -2186,18 +2188,18 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Log'
+              $ref: "#/definitions/Log"
 
   /api (APIAutoAVSetting.GetAutoTimeInfo):
     post:
       tags:
-      - Log
+        - Log
       summary: "Get the auto time info"
       operationId: GetAutoTimeInfo
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
         - in: body
           name: body
@@ -2220,18 +2222,18 @@ paths:
         200:
           description: "the auto time info"
           schema:
-            $ref: '#/definitions/TimeInfo'
+            $ref: "#/definitions/TimeInfo"
 
   /api (APIAutoAVSetting.ClearLog):
     post:
       tags:
-      - Log
+        - Log
       summary: "Clear all the log, please call this carefully"
       operationId: ClearLog
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
         - in: body
           name: body
@@ -2259,13 +2261,13 @@ paths:
   /api (APIAutoAVSetting.GetSystemPlatform):
     post:
       tags:
-      - System
+        - System
       summary: "Get the system platform"
       operationId: GetSystemPlatform
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
         - in: body
           name: body
@@ -2288,17 +2290,17 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/SystemPlatform'
+            $ref: "#/definitions/SystemPlatform"
   /api (APIAutoAVSetting.GetSystemModel):
     post:
       tags:
-      - System
+        - System
       summary: "Get the system model"
       operationId: GetSystemModel
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
         - in: body
           name: body
@@ -2321,7 +2323,7 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/SystemModel'
+            $ref: "#/definitions/SystemModel"
   /api (APIAutoAVSetting.GetExtenderVendor):
     post:
       tags:
@@ -2329,9 +2331,9 @@ paths:
       summary: "Get the system vendor"
       operationId: GetExtenderVendor
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
         - in: body
           name: body
@@ -2354,46 +2356,46 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/ExtenderVendor'
+            $ref: "#/definitions/ExtenderVendor"
   /api (APIAutoAVSetting.SetExtenderRotateCommand):
     post:
       tags:
-      - VideoWall
-      summary: 'Update extender rotate '
+        - VideoWall
+      summary: "Update extender rotate "
       operationId: SetExtenderRotateCommand
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: body
-        description: Object that needs to be set
-        required: true
-        schema:
-          type: object
-          properties:
-            jsonrpc:
-              type: string
-              example: '2.0'
-            id:
-              type: string
-              example: '20'
-              description: sequence number
-            method:
-              type: string
-              example: APIAutoAVSetting.SetExtenderRotateCommand
-            params:
-              type: object
-              properties:
-                macAddress:
-                  type: string
-                  description: target rx macaddress
-                  example: '28:60:12:45:12:A4'
-                value:
-                  type: integer
-                  description: rotate degrees, 0, 180, 270
-                  example: 0
+        - in: body
+          name: body
+          description: Object that needs to be set
+          required: true
+          schema:
+            type: object
+            properties:
+              jsonrpc:
+                type: string
+                example: "2.0"
+              id:
+                type: string
+                example: "20"
+                description: sequence number
+              method:
+                type: string
+                example: APIAutoAVSetting.SetExtenderRotateCommand
+              params:
+                type: object
+                properties:
+                  macAddress:
+                    type: string
+                    description: target rx macaddress
+                    example: "28:60:12:45:12:A4"
+                  value:
+                    type: integer
+                    description: rotate degrees, 0, 180, 270
+                    example: 0
       responses:
         200:
           description: successful operation
@@ -2407,37 +2409,37 @@ definitions:
       defaultGroupIndex:
         type: integer
       autoAV:
-        $ref: '#/definitions/ExtenderAutoAVSetting'
+        $ref: "#/definitions/ExtenderAutoAVSetting"
       misc:
-        $ref: '#/definitions/ExtenderMisc'
+        $ref: "#/definitions/ExtenderMisc"
       config:
         type: array
         items:
-          $ref: '#/definitions/ExtenderConfig'
+          $ref: "#/definitions/ExtenderConfig"
       groups:
         type: array
         items:
-          $ref: '#/definitions/ExtenderMapping'
+          $ref: "#/definitions/ExtenderMapping"
       schedule:
         type: array
         items:
-          $ref: '#/definitions/ExtenderSchedule'
+          $ref: "#/definitions/ExtenderSchedule"
       events:
         type: array
         items:
-          $ref: '#/definitions/ExtenderEvent'
+          $ref: "#/definitions/ExtenderEvent"
       access:
         type: array
         items:
-          $ref: '#/definitions/ExtenderAccess'
+          $ref: "#/definitions/ExtenderAccess"
       service:
-        $ref: '#/definitions/ExtenderService'
+        $ref: "#/definitions/ExtenderService"
       osd:
-        $ref: '#/definitions/ExtenderOSD'
+        $ref: "#/definitions/ExtenderOSD"
       videoWall:
         type: array
         items:
-          $ref: '#/definitions/ExtenderVideoWall'
+          $ref: "#/definitions/ExtenderVideoWall"
   ExtenderSchedule:
     type: object
     # TODO: 看不懂commet所以留白
@@ -2477,11 +2479,11 @@ definitions:
     type: object
     properties:
       auto:
-        $ref: '#/definitions/ExtenderAutoOSD'
+        $ref: "#/definitions/ExtenderAutoOSD"
       custom:
         type: array
         items:
-          $ref: '#/definitions/ExtenderCustomOSD'
+          $ref: "#/definitions/ExtenderCustomOSD"
   ExtenderCustomOSD:
     type: object
     properties:
@@ -2491,11 +2493,11 @@ definitions:
         type: string
       customType:
         type: string
-        pattern: '^(message|image)$'
+        pattern: "^(message|image)$"
       transparency:
         type: integer
       position:
-        $ref: '#/definitions/ExtenderPos'
+        $ref: "#/definitions/ExtenderPos"
       message:
         type: object
         properties:
@@ -2530,14 +2532,14 @@ definitions:
 
       resolution:
         type: string
-        pattern: '^(640x480@60|1920x1080@60|3840x2160@30)$'
+        pattern: "^(640x480@60|1920x1080@60|3840x2160@30)$"
 
   ExtenderPos:
     type: object
     properties:
       alignment:
         type: string
-        pattern: '^(topLeft|top|topRight|left|center|right|bottomLeft|bottom|bottomRight)$'
+        pattern: "^(topLeft|top|topRight|left|center|right|bottomLeft|bottom|bottomRight)$"
       offsetX:
         type: integer
       offsetY:
@@ -2550,15 +2552,13 @@ definitions:
         type: integer
         description: 0 | 180 | 270
 
-
   ExtenderAutoOSD:
     type: object
     properties:
       status:
-        $ref: '#/definitions/AutoOIDStatus'
+        $ref: "#/definitions/AutoOIDStatus"
       setting:
-        $ref: '#/definitions/AutoOIDSetting'
-
+        $ref: "#/definitions/AutoOIDSetting"
 
   AutoOIDStatus:
     type: object
@@ -2617,7 +2617,7 @@ definitions:
             example: 3
       name:
         type: string
-        example: 'VW1213'
+        example: "VW1213"
       osd:
         type: boolean
         example: false
@@ -2625,7 +2625,7 @@ definitions:
       mapping:
         type: array
         items:
-          $ref: '#/definitions/VideoWallMapping'
+          $ref: "#/definitions/VideoWallMapping"
   ExtenderEvent:
     type: object
     # TODO
@@ -2679,7 +2679,7 @@ definitions:
 
       learningType:
         type: string
-        pattern: '^(dynamic|static)$'
+        pattern: "^(dynamic|static)$"
       screenshotpath:
         type: string
       clientSource:
@@ -2705,7 +2705,7 @@ definitions:
         example: false
       priority:
         type: string
-        example: 'strict'
+        example: "strict"
         description: "one of the 'strict', 'high', 'normal'"
   ExtenderQueryInfo:
     type: object
@@ -2732,10 +2732,10 @@ definitions:
         type: string
       deviceName:
         type: string
-        example: 'TX_02B62CBFDEAC'
+        example: "TX_02B62CBFDEAC"
       deviceType:
         type: string
-        example: 'TX'
+        example: "TX"
       dhcpStatus:
         type: boolean
         example: false
@@ -2755,7 +2755,7 @@ definitions:
         example: 0
       gateway:
         type: string
-        example: '192.168.16.254'
+        example: "192.168.16.254"
       groupId:
         type: integer
         example: 0
@@ -2776,7 +2776,7 @@ definitions:
         example: 127
       ipAddress:
         type: string
-        example: '169.254.10.32'
+        example: "169.254.10.32"
       kBitRate:
         type: integer
         example: 0
@@ -2789,19 +2789,19 @@ definitions:
         type: string
       learningType:
         type: string
-        example: 'static'
+        example: "static"
       ledFlag:
         type: boolean
         example: false
       macAddress:
         type: string
-        example: '02:B6:2C:BF:DE:AC'
+        example: "02:B6:2C:BF:DE:AC"
       multicastAddress:
         type: string
-        example: '225.0.101.117'
+        example: "225.0.101.117"
       netmask:
         type: string
-        example: '255.255.0.0'
+        example: "255.255.0.0"
       osdIndex:
         type: integer
         example: -1
@@ -2828,7 +2828,7 @@ definitions:
         type: string
       screenshotpath:
         type: string
-        example: '0'
+        example: "0"
       sinkConnection:
         type: boolean
         example: false
@@ -2839,19 +2839,19 @@ definitions:
         type: string
       txVersion:
         type: string
-        example: 'Thu, 08 Mar 2018 16:41:01 +0800↵A7.1.1 Build 3121'
+        example: "Thu, 08 Mar 2018 16:41:01 +0800↵A7.1.1 Build 3121"
       upScaleMode:
         type: string
-        example: 'passThrough'
+        example: "passThrough"
       vendor:
         type: string
-        example: 'AST'
+        example: "AST"
       verifyGomax:
         type: integer
         example: true
       videoLockStatus:
         type: string
-        example: 'normal'
+        example: "normal"
       videoOutMode:
         type: integer
         example: 0
@@ -2860,10 +2860,10 @@ definitions:
     properties:
       macAddress:
         type: string
-        description: 'extender macAddress'
+        description: "extender macAddress"
       value:
         type: string
-        description: 'the url of the snapshot stores'
+        description: "the url of the snapshot stores"
   ExtenderMisc:
     type: object
     properties:
@@ -2888,7 +2888,7 @@ definitions:
           deviceName:
             type: string
             description: name of the device
-            example: 'RX123'
+            example: "RX123"
           groupId:
             type: integer
             description: group id of the device
@@ -2896,10 +2896,10 @@ definitions:
           deviceType:
             type: string
             description: device type
-            example: 'RX'
+            example: "RX"
           macAddress:
             type: string
-            example: '28:60:12:45:12:A4'
+            example: "28:60:12:45:12:A4"
   SystemPlatform:
     type: object
     properties:
@@ -3019,8 +3019,8 @@ definitions:
 #  - http
 # Added by API Auto Mocking Plugin
 schemes:
- - https
- - http
+  - https
+  - http
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
 basePath: /Intrising/Evo-IP/1.0.0
