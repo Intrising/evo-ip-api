@@ -1017,7 +1017,7 @@ paths:
                 description: sequence number
               method:
                 type: string
-                example: APIAutoAVSetting.GetUserOSDList
+                example: APIAutoAVSetting.AddUserOSDPhoto
               params:
                 type: string
                 example: "/tmp/photo1.jpg"
@@ -1144,6 +1144,15 @@ paths:
                     type: string
                     example: "640x480@60"
                     description: "The supported resolution string"
+                    enum:
+                      - "640x480@60"
+                      - "640x480@30"
+                      - "1280x720@60"
+                      - "1280x720@30"
+                      - "1680x1050@60"
+                      - "1680x1050@30"
+                      - "1920x1080@60"
+                      - "1920x1080@30"
       responses:
         200:
           description: successful operation
@@ -1218,7 +1227,8 @@ paths:
                         example: "reboot"
                       key:
                         type: string
-                        description: Don't use dot ','
+                        description: The extender name that you want to apply action
+                        example: "tx123"
                       duration:
                         type: integer
                         example: 20
@@ -1262,6 +1272,9 @@ paths:
                   deviceType:
                     type: string
                     example: "TX"
+                    enum:
+                      - TX
+                      - RX
                   deviceName:
                     type: string
                     example: "txB"
@@ -1277,9 +1290,9 @@ paths:
                     items:
                       type: object
                       properties:
-                        duation:
+                        duration:
                           type: integer
-                          description: should be deprecated
+                          description: This field should be deprecated
                           example: 0
                         key:
                           type: string
@@ -1351,7 +1364,7 @@ paths:
     post:
       tags:
         - Event
-      summary: "Set the event email"
+      summary: "Set the event sms"
       operationId: SetExtenderSmsConfig
       consumes:
         - application/json
@@ -1423,32 +1436,35 @@ paths:
                 type: string
                 example: APIAutoAVSetting.SetExtenderAccessConfig
               params:
-                type: object
-                properties:
-                  account:
-                    type: string
-                    description: access account
-                    example: "t8z85x"
-                  deviceName:
-                    type: string
-                    description: device name
-                    example: "RX_82231C88A77B"
-                  deviceType:
-                    type: string
-                    description: device type
-                    example: "RX"
-                  password:
-                    type: string
-                    description: access password
-                    example: "cr8i5l"
-                  rules:
-                    type: array
-                    description: the source name
-                    items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    account:
                       type: string
+                      description: access account
+                      example: "t8z85x"
+                    deviceName:
+                      type: string
+                      description: Device name of a receiver
+                      example: "RX_82231C88A77B"
+                    deviceType:
+                      type: string
+                      description: device type
+                      example: "RX"
                       enum:
-                        - "TX_mac"
-                        - "TX_024D8DB74F41"
+                        - RX
+                        - TX
+                    password:
+                      type: string
+                      description: The password to access
+                      example: "cr8i5l"
+                    rules:
+                      type: array
+                      description: This array contains all rules
+                      items:
+                        type: string
+                        descriptoin: Device name of a transmitter
       responses:
         200:
           description: successful operation
