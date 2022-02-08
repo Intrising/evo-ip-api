@@ -2360,7 +2360,7 @@ paths:
   /api (APIAutoAVSetting.SetExtenderRotateCommand):
     post:
       tags:
-        - VideoWall
+        - Setup
       summary: "Update extender rotate "
       operationId: SetExtenderRotateCommand
       consumes:
