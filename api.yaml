@@ -1442,7 +1442,7 @@ paths:
                   properties:
                     account:
                       type: string
-                      description: access account
+                      description: The account to access this device
                       example: "t8z85x"
                     deviceName:
                       type: string
@@ -1465,6 +1465,7 @@ paths:
                       items:
                         type: string
                         descriptoin: Device name of a transmitter
+                        example: "TX_123"
       responses:
         200:
           description: successful operation
