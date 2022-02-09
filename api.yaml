@@ -1948,7 +1948,11 @@ paths:
                   value:
                     type: integer
                     default: 0
-                    description: "one of 1 or 2"
+                    description: "0 is to disable the video out"
+                    enum:
+                      - 0
+                      - 2
+                      - 3
       responses:
         200:
           description: successful operation
@@ -2122,6 +2126,12 @@ paths:
                       enum:
                         - 1
                         - 2
+                        - 3
+                        - 4
+                        - 5
+                        - 6
+                        - 7
+                        - 8
                   learningEDIDFrom:
                     type: string
                     example: "11:22:33:12:54:A3"
