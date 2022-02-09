@@ -1897,6 +1897,13 @@ paths:
                   value:
                     type: string
                     example: "passthrough"
+                    enum:
+                      - "passThrough"
+                      - "720p60"
+                      - "1080p60"
+                      - "1080p50"
+                      - "2160p30"
+                      - "2160p25"
       responses:
         200:
           description: successful operation
