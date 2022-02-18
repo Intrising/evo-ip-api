@@ -1279,12 +1279,10 @@ paths:
                     type: string
                     example: "txB"
                   event:
-                    type: array
-                    items:
-                      type: string
-                      enum:
-                        - videoLost
-                        - connectionLost
+                    type: string
+                    enum:
+                      - videoLost
+                      - connectionLost
                   actions:
                     type: array
                     items:
@@ -2180,7 +2178,7 @@ paths:
                     example: "28:60:12:45:12:A4"
                   value:
                     type: integer
-                    description: Set the baudRate you want to set, support 300,600,1200,2400,4800,9600,19200,38400,57600,115200
+                    description: Set the baudRate you want to set, the EVOIPLITE does not support 300,600,1200
                     example: 300
                     enum:
                       - 300
