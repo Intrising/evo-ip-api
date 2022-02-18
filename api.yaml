@@ -1297,13 +1297,11 @@ paths:
                           description: name of the email or sms group, conbined with ;
                           example: "new_group_0;new_group_1"
                         name:
-                          type: array
+                          type: string
                           description: action name
-                          items:
-                            type: string
-                            enum:
-                              - "email"
-                              - "sms"
+                          enum:
+                            - "email"
+                            - "sms"
       responses:
         200:
           description: successful operation
