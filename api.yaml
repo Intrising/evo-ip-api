@@ -1939,12 +1939,12 @@ paths:
                 properties:
                   macAddress:
                     type: string
-                    description: macaddress of rx
+                    description: macaddress of tx
                     example: "28:60:12:45:12:A4"
                   value:
                     type: integer
                     default: 0
-                    description: "0 is to disable the video out"
+                    description: "0 is to enable the video out, 2 is to disable"
                     enum:
                       - 0
                       - 2
