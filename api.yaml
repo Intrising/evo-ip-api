@@ -326,7 +326,7 @@ paths:
     post:
       tags:
         - Matrix
-      summary: "Switch the cec value of extender"
+      summary: "Switch the cec value of extender, user needs to enable the CEC in misc setting first"
       operationId: SetExtenderCECCommand
       consumes:
         - application/json
